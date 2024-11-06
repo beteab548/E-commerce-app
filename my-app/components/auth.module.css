@@ -1,15 +1,35 @@
 .form {
-  background-color: aqua;
-  height: 24rem;
+  background-color: rgb(255, 255, 255);
+  height: 26rem;
   align-content: center;
   margin-left: 500px;
   margin-right: 500px;
+  margin-top: -80px;
+  box-shadow: 10px 10px 10px 10px rgba(122, 122, 122, 0.2);
 }
-.container{
-    display: grid;
-    grid-template-columns: auto ;
-    text-align: center;
-    align-items: center;
-    background-color: red;
-    height: 42.66rem;
+.form div {
+  margin: 20px;
+}
+.form h1 {
+  margin-bottom: 50px;
+}
+.form input {
+  height: 50px;
+  width: 380px;
+  background-color: rgb(255, 255, 255);
+padding: 10px;
+}
+.form button{
+  background-color: rgb(109, 108, 108);
+  height: 50px;
+  width: 130px;
+  font-size: larger;
+}
+.container {
+  display: grid;
+  grid-template-columns: auto;
+  text-align: center;
+  align-items: center;
+  height: 42.66rem;
+  color:rgb(43, 42, 42);
 }

@@ -9,6 +9,6 @@
   max-width: 450px;
   width: 450px;
   margin: 10px;
-  box-shadow: 5px 5px 10px rgba(173, 172, 172, 0.2);
+  box-shadow: 5px 5px 10px 10px rgba(173, 172, 172, 0.15);
   color: black;
 }

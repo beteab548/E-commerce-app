@@ -4,19 +4,22 @@ export default function AuthForm({ formFormat }) {
     <div className={classes.container}>
       <form className={classes.form}>
         <div>
-            <h3>Login</h3>
+            <h1>Login</h1>
         </div>
         <div>
-          <input type="text" />
+          <input placeholder="Emial" type="text" />
         </div>
         <div>
-          <input type="password" />
+          <input placeholder="Password" type="password" />
         </div>
         {formFormat === "register" && (
           <div>
             <input type="text" />
           </div>
         )}
+        <div>
+            <button>Sign In </button>
+        </div>
       </form>
     </div>
   );
