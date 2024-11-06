@@ -1,0 +1,32 @@
+.header {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: rgb(242, 245, 248);
+  height: 100px;
+  align-items: center;
+  margin: 10px;
+  color: rgb(5, 56, 5);
+  border-radius: 13px;
+  padding: 10px;
+  box-shadow: 5px 5px 15px rgba(167, 165, 165, 0.3);
+}
+.leftItmes {
+  display: grid;
+  grid-column: 1/2;
+  grid-template-columns: 0.3fr 0.2fr;
+  justify-items: center;
+  text-align: center;
+}
+.centerItems {
+  display: grid;
+  grid-template-columns: auto;
+  text-align: center;
+  justify-content: center;
+}
+.rightItems {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr 0.5fr;
+  column-gap: 5px;
+  align-items: center;
+  justify-items: end;
+}

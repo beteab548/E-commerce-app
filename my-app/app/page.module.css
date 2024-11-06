@@ -15,7 +15,21 @@
   gap: 64px;
   font-family: var(--font-geist-sans);
 }
+.homeContainer {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  height: 44rem;
+}
 
+.leftItmes{
+ text-align: center;
+ align-content: center;
+}
+.rightItmes{
+text-align: center;
+align-content: center;
+}
 @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
@@ -68,10 +82,7 @@
   padding: 0 20px;
   border: none;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
