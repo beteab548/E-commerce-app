@@ -5,7 +5,7 @@ export default function Search() {
     <Link href={'/search'}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      style={{ width: "2.2rem", height: "2.2rem" }}
+      style={{ width: "1.5rem", height: "1.6rem" }}
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
