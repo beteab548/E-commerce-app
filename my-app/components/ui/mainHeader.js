@@ -10,6 +10,7 @@ import Image from "next/image";
 
 export default function MainHedaer() {
   return (
+    <>
     <header className={classes.header}>
       <div className={classes.leftItmes}>
         <Shop />
@@ -26,5 +27,7 @@ export default function MainHedaer() {
         <Profile />
       </div>
     </header>
+      <hr/>
+    </>
   );
 }

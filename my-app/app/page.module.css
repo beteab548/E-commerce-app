@@ -16,6 +16,7 @@
   font-family: var(--font-geist-sans);
 }
 .homeContainer {
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   background: linear-gradient(to right, #ff7e5f, #feb47b);
