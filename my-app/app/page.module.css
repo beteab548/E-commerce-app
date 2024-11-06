@@ -27,8 +27,23 @@
  align-content: center;
 }
 .rightItmes{
-text-align: center;
+text-align: start;
 align-content: center;
+line-height: 35px;
+}
+.button{
+background-color: white;
+color: #feb47b;
+width: 105px;
+height: 35px;
+font-size: larger;
+border-radius: 10px;
+margin-top: 10px;
+}
+.button:hover{
+  background-color: #ebeae9;
+  color:#ff7e5f;
+  cursor:pointer;
 }
 @media (prefers-color-scheme: dark) {
   .page {
