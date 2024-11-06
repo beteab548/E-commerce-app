@@ -1,0 +1,16 @@
+.main {
+  display: grid;
+  color: black;
+  font-family: " roboto";
+  font-size: large;
+}
+.main ul {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
+  list-style: none;
+  row-gap: 35px;
+  column-gap: 20px;
+  padding: 20px;
+}

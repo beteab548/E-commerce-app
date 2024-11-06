@@ -2,12 +2,13 @@ import Button from "@/components/ui/button";
 import classes from "./page.module.css";
 import Image from "next/image";
 import logo from "@/public/logo.svg";
+import Collections from "@/components/ui/collection";
 export default function HomePage() {
   return (
     <>
       <section className={classes.homeContainer}>
         <div className={classes.leftItmes}>
-          <Image src={logo} width={300} height={400} />
+          <Image src={logo} width={300} height={400} alt="logo image" />
         </div>
         <div className={classes.rightItmes}>
           <h1>shop everything you want now!</h1>
@@ -15,7 +16,9 @@ export default function HomePage() {
           <Button textDisplay={"shop"} path={"/shop"} />
         </div>
       </section>
-      <section></section>
+      <section >
+        <Collections />
+      </section>
     </>
   );
 }

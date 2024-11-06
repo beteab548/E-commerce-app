@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 251, 251);
+  align-items: center;
+  border-radius: 8px;
+  padding: 10px;
+  line-height: 2.5rem;
+  max-width: 450px;
+  margin: 10px;
+  box-shadow: 5px 5px 20px rgba(54, 53, 53, 0.3);
+}
+.title{
+    
+}

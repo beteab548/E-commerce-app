@@ -17,7 +17,7 @@ export default function MainHedaer() {
       </div>
       <div className={classes.centerItems}>
         <Link href={"/"}>
-          <Image src={logo} width={50} height={50} />
+          <Image src={logo} width={50} height={50} alt="logo image" />
         </Link>
       </div>
       <div className={classes.rightItems}>
