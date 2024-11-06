@@ -1,0 +1,15 @@
+.form {
+  background-color: aqua;
+  height: 24rem;
+  align-content: center;
+  margin-left: 500px;
+  margin-right: 500px;
+}
+.container{
+    display: grid;
+    grid-template-columns: auto ;
+    text-align: center;
+    align-items: center;
+    background-color: red;
+    height: 42.66rem;
+}

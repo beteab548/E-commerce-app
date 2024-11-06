@@ -56,14 +56,12 @@
 }
 
 .footer {
- display: grid;
-
+  display: grid;
   margin-right: 40px;
   text-align: end;
   color: rgb(46, 46, 46);
   margin-left: 45px;
 }
-
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
