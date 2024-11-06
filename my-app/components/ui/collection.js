@@ -37,6 +37,7 @@ export default function Collections() {
                 title={collections.title}
                 description={collections.description}
                 btnText={collections.btnTxt}
+                topic={'collections'}
               />
             </li>
           );
