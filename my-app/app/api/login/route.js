@@ -12,9 +12,7 @@ export async function POST(req) {
       email: formdata.email,
       password: formdata.password,
     });
-    console.log(userExists);
-    if (userExists === null) {
-      console.log("no email found");
+    if (userExists == null) {
       return NextResponse.json({
         message: "no user found with this Email Address!",
       });
@@ -24,5 +22,6 @@ export async function POST(req) {
     return NextResponse.json({ token: token });
   } catch (err) {
     console.log(err);
+    return NextResponse.json({meessage:'error occured logging user!'})
   }
 }

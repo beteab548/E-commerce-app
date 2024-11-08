@@ -21,26 +21,31 @@ export default function AuthForm({ formFormat }) {
             <input placeholder="Emial" type="text" name="email" />
           </div>
         )}
-        <div></div>
-        {formFormat !== "Reset-Password" && (
-          <>
-            <div>
-              <input placeholder="Emial" type="text" name="email" />
-            </div>
-            <div>
-              <input placeholder="Password" type="password" name="password" />
-            </div>
-            {formFormat === "Register" && (
-              <div>
-                <input
-                  type="password"
-                  placeholder="confirm password"
-                  name="confirm-password"
-                />
-              </div>
-            )}
-          </>
+        {formFormat === "Password-resetting" && (
+          <div>
+            <input placeholder="New Password" type="password" name="password" />
+          </div>
         )}
+        {formFormat !== "Reset-Password" &&
+          formFormat !== "Password-resetting" && (
+            <>
+              <div>
+                <input placeholder="Emial" type="text" name="email" />
+              </div>
+              <div>
+                <input placeholder="Password" type="password" name="password" />
+              </div>
+              {formFormat === "Register" && (
+                <div>
+                  <input
+                    type="password"
+                    placeholder="confirm password"
+                    name="confirm-password"
+                  />
+                </div>
+              )}
+            </>
+          )}
         <div>
           <button type="submit">{btnText} </button>
         </div>

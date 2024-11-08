@@ -1,4 +1,4 @@
-import mongoose, { model, models, Schema, SchemaTypes } from "mongoose";
+import mongoose, { model, models, Schema, SchemaTypes, Types } from "mongoose";
 export function Connect() {
   if (mongoose.connections[0].readyState) {
     console.log("already connected");
@@ -14,5 +14,7 @@ export function Connect() {
 const userSchema = new Schema({
   email: SchemaTypes.String,
   password: SchemaTypes.String,
+  pwdResetToken: { type: SchemaTypes.String, default: null },
+  pwdResetTokenExpiration: { type: SchemaTypes.Date, default: null },
 });
-export const User = mongoose.models.user || model("user", userSchema);
+export const User = mongoose.models.User || model("User", userSchema);
