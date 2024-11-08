@@ -1,5 +1,5 @@
 import Card from "./card";
-import classes from './products.module.css'
+import classes from "./products.module.css";
 const dummy_products = [
   {
     imagePath:
@@ -16,7 +16,7 @@ const dummy_products = [
   {
     imagePath:
       "https://th.bing.com/th/id/OIP.GM3jwQLQexIknT6F8z8eOgHaHa?w=179&h=180&c=7&r=0&o=5&pid=1.7",
-    description: "all start all ",
+    description: "all start white ",
     price: 300,
   },
   {
@@ -24,32 +24,31 @@ const dummy_products = [
       "https://th.bing.com/th?id=OIF.UlEdu%2bbtzi6iLw4kqIdLGQ&w=178&h=180&c=7&r=0&o=5&pid=1.7",
     description: "nike air blue",
     price: 300,
-  },  {
-    imagePath:
-      "https://th.bing.com/th?id=OIF.UlEdu%2bbtzi6iLw4kqIdLGQ&w=178&h=180&c=7&r=0&o=5&pid=1.7",
-    description: "nike air blue",
-    price: 300,
-  },  {
+  },
+  {
     imagePath:
       "https://th.bing.com/th/id/OIP.GM3jwQLQexIknT6F8z8eOgHaHa?w=179&h=180&c=7&r=0&o=5&pid=1.7",
-    description: "all start all ",
+    description: "all start black ",
     price: 300,
   },
 ];
 export default function DisplayProduts() {
   return (
     <main className={classes.ProductsContainer}>
-        <h2>Featured Products</h2>
+      <h2>Featured Products</h2>
       <ul>
         {dummy_products.map((products) => {
           return (
-            <Card
-              topic={"products"}
-              imagePath={products.imagePath}
-              description={products.description}
-              price={products.price}
-              btnText={'buy'}
-            />
+            <>
+              <Card
+                key={products.description}
+                topic={"products"}
+                imagePath={products.imagePath}
+                description={products.description}
+                price={products.price}
+                btnText={"buy"}
+              />
+            </>
           );
         })}
       </ul>
