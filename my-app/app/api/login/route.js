@@ -3,18 +3,20 @@ import { Connect } from "@/lib/database";
 import { User } from "@/lib/database";
 export async function POST(req) {
   const body = await req.json();
+  console.log(body);
   await Connect();
   try {
-    const newUser = await User.create({
+   const userFound=await  User.findOne({
       email: body.email,
       password: body.password,
     });
-    return newUser;
+    if(!userFound){
+    return  NextResponse.json({message:'no user found with this Email Address!'})
+    }
+    
   } catch (err) {
     console.log(err);
   }
-
   console.log("login enpoint reached");
-
   return NextResponse.json({ message: "logged in" });
 }

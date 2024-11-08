@@ -4,11 +4,11 @@ export async function handleFormBtn(btnText, formdata) {
       email: formdata.get("email"),
       password: formdata.get("password"),
     };
-    const response = await fetch("http://localhost:3000/api/login", {
+    const response = await fetch("http://localhost:3000/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formdatas),
       });
     const resData = await response.json();
-    // console.log(resData);
+    console.log(resData);
 }
