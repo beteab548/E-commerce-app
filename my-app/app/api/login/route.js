@@ -6,6 +6,7 @@ export async function POST(req) {
   console.log(body);
   await Connect();
   try {
+    //find if email already exisits in the database
    const userFound=await  User.findOne({
       email: body.email,
       password: body.password,
@@ -13,7 +14,7 @@ export async function POST(req) {
     if(!userFound){
     return  NextResponse.json({message:'no user found with this Email Address!'})
     }
-    
+    //here generate webtoken and send it back 
   } catch (err) {
     console.log(err);
   }
