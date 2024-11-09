@@ -1,6 +1,9 @@
 .layoutContainer h3 {
   color: black;
   text-align: center;
+margin-top:20px;
+margin-bottom: 70px;
+font-weight: lighter;
 }
 .container {
   display: grid;
@@ -19,11 +22,13 @@
   height: 300px;
   align-self: start;
   height: auto;
+  border-right: 0.2px solid rgb(214, 208, 208);
 }
 .children {
   align-self: start;
   display: grid;
 }
 .productChoiceConfig div {
-  margin: 80px;
+  margin: 40px;
+
 }

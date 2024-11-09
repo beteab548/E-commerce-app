@@ -48,20 +48,20 @@ export async function handleProductSelection(modelName) {
     });
     return productObjectArray;
   }
-    // const ProductsToObject = {
-    //   id: allShoes._id.toString(),
-    //   brand: allShoes.brand,
-    //   size: allShoes.size,
-    //   imagePath: allShoes.imagePath,
-    //   price: allShoes.price,
-    //   description: allShoes.description,
-    //   color: allShoes.color,
-    //   model_name: allShoes.model_name,
-    //   gender: allShoes.gender,
-    //   product_type: allShoes.product_type,
-    // };
-    // console.log(ProductsToObject);
-    // return ProductsToObject;
+  // const ProductsToObject = {
+  //   id: allShoes._id.toString(),
+  //   brand: allShoes.brand,
+  //   size: allShoes.size,
+  //   imagePath: allShoes.imagePath,
+  //   price: allShoes.price,
+  //   description: allShoes.description,
+  //   color: allShoes.color,
+  //   model_name: allShoes.model_name,
+  //   gender: allShoes.gender,
+  //   product_type: allShoes.product_type,
+  // };
+  // console.log(ProductsToObject);
+  // return ProductsToObject;
   if (modelName === "jacket") {
     const allJackets = await jacket.findOne();
     const ProductsToObject = {
@@ -75,7 +75,6 @@ export async function handleProductSelection(modelName) {
       gender: allJackets.gender,
       product_type: allJackets.product_type,
     };
-    console.log(ProductsToObject);
     return [ProductsToObject];
   }
 }
