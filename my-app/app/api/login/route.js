@@ -19,6 +19,7 @@ export async function POST(req) {
     }
     //here generate webtoken and send it back
     const token = JWT.sign(formdata.email, salt);
+    console.log('logged');
     return NextResponse.json({ token: token });
   } catch (err) {
     console.log(err);

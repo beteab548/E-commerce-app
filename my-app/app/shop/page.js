@@ -1,10 +1,9 @@
 "use client";
-import React, { useRef } from "react";
 import classes from "./shop.module.css";
 import Card from "@/components/ui/card";
 import { fetchModels } from "@/lib/fetchMethods";
-import { useEffect, useState } from "react";
-
+import { useEffect, useState, useRef, Suspense } from "react";
+import { handleProductSelection } from "@/lib/fetchMethods";
 const dummy_products = [
   {
     imagePath:
@@ -38,42 +37,52 @@ const dummy_products = [
   },
 ];
 export default function ButtonRow() {
+  //needs a better optimised way of retiving the product menu
   const containerRef = useRef(null);
+  const [modelNames, setModelsName] = useState([]);
+  const [productsArray, setProductsArray] = useState(dummy_products);
+  useEffect(() => {
+    async function fetchData() {
+      const modelNameArray = await fetchModels();
+      setModelsName(modelNameArray);
+    }
+    fetchData();
+  }, []);
+ async function handelFetchProducts(ProductName) {
+console.log( await handleProductSelection(ProductName))
+  }
   const handleScroll = (event) => {
     // Prevent vertical scroll; only scroll horizontally within the button row
     event.preventDefault();
     containerRef.current.scrollLeft += event.deltaY;
   };
-  const [modelNames, setModelsName] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-    const modelNameArray=  await fetchModels();
-      setModelsName(modelNameArray)
-    }
-    fetchData()
-  }, []);
-
+  // console.log(modelNames);
   return (
     <>
-      {
-        <div
-          className={classes.buttonContainer}
-          ref={containerRef}
-          onWheel={handleScroll} // Enable middle-mouse scrolling horizontally
-        >
-          {modelNames.map((names, index) => {
-            return (
-              <button key={index} className={classes.scrollButton}>
-                {names}
-              </button>
-            );
-          })}
-        </div>
-      }
+      <div
+        className={classes.buttonContainer}
+        ref={containerRef}
+        onWheel={handleScroll} // Enable middle-mouse scrolling horizontally
+      >
+        {modelNames.map((names, index) => {
+          return (
+            <button
+              type="submit"
+              key={index}
+              onClick={() => {
+                handelFetchProducts(names);
+              }}
+              className={classes.scrollButton}
+            >
+              {names}
+            </button>
+          );
+        })}
+      </div>
       <main className={classes.ProductsContainer}>
-        <h2>Featured Products</h2>
+        <h2>Featured Products now</h2>
         <ul>
-          {dummy_products.map((products) => {
+          {productsArray.map((products) => {
             return (
               <Card
                 key={products.description}

@@ -1,53 +1,54 @@
 /* Container with horizontal scrolling */
 .buttonContainer {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    white-space: nowrap;
-    width: 100%; /* Adjust based on your design */
-    padding: 10px;
-    cursor: pointer; /* Shows it's scrollable */
-    color: black;
-  }
-  /* Style for the buttons */
-  .scrollButton {
-    min-width: 5px;
-    margin: 5px;
-    padding: 10px;
-    flex-shrink: 0;
-    background-color: #969494;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    border-radius: 8px;
-  }
-  .scrollButton:hover{
-    background-color: #6b6969;
-  }
-  
-  .buttonContainer::-webkit-scrollbar {
-    height: 3px; /* Set the scrollbar height */
-  }
-  
-  .buttonContainer::-webkit-scrollbar-thumb {
-    background-color: #888; /* Color of the scrollbar thumb */
-    border-radius: 10px;
-  }
-  
-  .buttonContainer::-webkit-scrollbar-track {
-    background-color: #f0f0f0; /* Background color of the scrollbar track */
-  }
-  .ProductsContainer{
-    display: grid;
-    text-align: center;
-    color: rgb(53, 52, 52);
-  
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  width: 100%; /* Adjust based on your design */
+  padding: 10px;
+  cursor: pointer; /* Shows it's scrollable */
+  color: black;
+}
+/* Style for the buttons */
+.scrollButton {
+  min-width: 5px;
+  margin: 5px;
+  padding: 10px;
+  flex-shrink: 0;
+  background-color: #969494;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.scrollButton:hover {
+  background-color: #6b6969;
 }
 
-.ProductsContainer ul{
-    display: grid;
-    grid-template-columns: auto auto auto ;
-    justify-content:space-evenly;
-
+.buttonContainer::-webkit-scrollbar {
+  height: 3px; /* Set the scrollbar height */
 }
- 
+
+.buttonContainer::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 10px;
+}
+
+.buttonContainer::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Background color of the scrollbar track */
+}
+.ProductsContainer {
+  display: grid;
+  text-align: center;
+  color: rgb(53, 52, 52);
+}
+
+.ProductsContainer ul {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-evenly;
+}
+
+.color {
+  color: black;
+}
