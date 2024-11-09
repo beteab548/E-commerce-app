@@ -39,14 +39,15 @@ export default function DisplayProduts() {
       <ul>
         {dummy_products.map((products) => {
           return (
-            <Card
-              key={products.description}
-              topic={"products"}
-              imagePath={products.imagePath}
-              description={products.description}
-              price={products.price}
-              btnText={"buy"}
-            />
+            <li key={products.description}>
+              <Card
+                topic={"products"}
+                imagePath={products.imagePath}
+                description={products.description}
+                price={products.price}
+                btnText={"buy"}
+              />
+            </li>
           );
         })}
       </ul>

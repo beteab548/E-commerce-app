@@ -4,6 +4,7 @@ import Card from "@/components/ui/card";
 import { fetchModels } from "@/lib/fetchMethods";
 import { useEffect, useState, useRef, Suspense } from "react";
 import { handleProductSelection } from "@/lib/fetchMethods";
+
 export default function ButtonRow() {
   //needs a better optimised way of retiving the product menu
   const containerRef = useRef(null);
@@ -13,7 +14,6 @@ export default function ButtonRow() {
   useEffect(() => {
     async function fetchData() {
       const modelNameArray = await fetchModels();
-
       setModelsName(modelNameArray);
     }
     fetchData();
