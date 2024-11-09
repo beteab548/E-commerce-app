@@ -1,4 +1,5 @@
 "use server";
+import mongoose from "mongoose";
 let URl = "http://localhost:3000/api/";
 let formPage = "login";
 export async function handleFormBtn(btnText, formdata) {
@@ -20,7 +21,8 @@ export async function handleFormBtn(btnText, formdata) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formdatas),
   });
-  console.log(`${URl}${formPage}`);
   const resData = await response.json();
-  console.log(resData);
+}
+export async function fetchModels() {
+  return mongoose.modelNames();
 }

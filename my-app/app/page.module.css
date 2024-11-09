@@ -15,6 +15,7 @@
   gap: 64px;
   font-family: var(--font-geist-sans);
 }
+
 .homeContainer {
   margin-top: 10px;
   display: grid;

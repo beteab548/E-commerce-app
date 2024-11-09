@@ -61,9 +61,11 @@ export default function AuthForm({ formFormat }) {
                 : "Create New Account"}{" "}
             </Link>
           </div>
-          <div>
-            <Link href={"/account/reset-password"}> Forgot Password? </Link>
-          </div>
+          {btnText === "Login" && (
+            <div>
+              <Link href={"/account/reset-password"}> Forgot Password? </Link>
+            </div>
+          )}
         </div>
       </form>
     </div>

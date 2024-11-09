@@ -10,7 +10,7 @@ export async function POST(req) {
     return NextResponse.json({ message: "invalid Email Entered" });
   }
   const resetToken = crypto.randomBytes(32).toString("hex");
-  const resetUrl = `https://localhost:3000/password-resetting?token=${resetToken}&email=${userExists.email}`;
+  const resetUrl = `http://localhost:3000/account/password-resetting?token=${resetToken}&email=${userExists.email}`;
   userExists.pwdResetToken = resetToken;
   userExists.pwdResetTokenExpiration = Date.now() + 3600000;
   await userExists.save();
@@ -29,11 +29,13 @@ export async function POST(req) {
   <a href="${resetUrl}">Reset Password</a>
   <p>If you did not request a password reset, please ignore this email.</p>`,
   };
+  const email = await transporter.sendMail(mailOption);
+  console.log(email);
   return NextResponse.json({ message: "resetting password" });
   //send a link to that email that will reset the paswword
 }
 export async function PATCH(req) {
   const formdata = await req.json();
-//here read the email from the url and update the user database
+  //here read the email from the url and update the user database
   return NextResponse.json({ message: "updating the reset password" });
 }
