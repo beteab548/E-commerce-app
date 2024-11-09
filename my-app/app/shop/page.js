@@ -48,8 +48,8 @@ export default function ButtonRow() {
     }
     fetchData();
   }, []);
- async function handelFetchProducts(ProductName) {
-console.log( await handleProductSelection(ProductName))
+  async function handelFetchProducts(ProductName) {
+    setProductsArray(await handleProductSelection(ProductName));
   }
   const handleScroll = (event) => {
     // Prevent vertical scroll; only scroll horizontally within the button row

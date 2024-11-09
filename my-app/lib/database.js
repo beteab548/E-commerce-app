@@ -30,6 +30,7 @@ const shoeSchema = new Schema({
   gender: { type: SchemaTypes.String, required: true },
   size: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const shoe = mongoose.models.shoe || model("shoe", shoeSchema);
 const carSchema = new Schema({
@@ -38,6 +39,7 @@ const carSchema = new Schema({
   price: { type: SchemaTypes.Number, required: true },
   color: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const car = mongoose.models.car || model("car", carSchema);
 const houseSchema = new Schema({
@@ -47,16 +49,18 @@ const houseSchema = new Schema({
   color: { type: SchemaTypes.String, required: true },
   address: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const house = mongoose.models.house || model("house", houseSchema);
 
 const phoneSchema = new Schema({
-  built_with: { type: SchemaTypes.String, required: true },
+  screen_size: { type: SchemaTypes.String, required: true },
   description: { type: SchemaTypes.String, required: true },
   price: { type: SchemaTypes.Number, required: true },
   color: { type: SchemaTypes.String, required: true },
   address: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const phone = mongoose.models.phone || model("phone", phoneSchema);
 
@@ -66,6 +70,8 @@ const tshirtSchema = new Schema({
   price: { type: SchemaTypes.Number, required: true },
   color: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  size: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const tshirt = mongoose.models.tshirt || model("tshirt", tshirtSchema);
 const pantsSchema = new Schema({
@@ -75,6 +81,8 @@ const pantsSchema = new Schema({
   color: { type: SchemaTypes.String, required: true },
   gender: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  size: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const pants = mongoose.models.pants || model("pants", pantsSchema);
 
@@ -85,6 +93,8 @@ const hoddieSchema = new Schema({
   color: { type: SchemaTypes.String, required: true },
   gender: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  size: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const hoddie = mongoose.models.hoddie || model("hoddie", hoddieSchema);
 
@@ -95,6 +105,8 @@ const jacketSchema = new Schema({
   color: { type: SchemaTypes.String, required: true },
   gender: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  size: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const jacket = mongoose.models.jacket || model("jacket", jacketSchema);
 const laptopSchema = new Schema({
@@ -103,6 +115,7 @@ const laptopSchema = new Schema({
   price: { type: SchemaTypes.Number, required: true },
   Screen_size: { type: SchemaTypes.Number, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const laptop = mongoose.models.laptop || model("laptop", laptopSchema);
 const desktopSchema = new Schema({
@@ -111,6 +124,7 @@ const desktopSchema = new Schema({
   price: { type: SchemaTypes.Number, required: true },
   Screen_size: { type: SchemaTypes.Number, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  product_type: { type: SchemaTypes.String, required: true },
 });
 export const desktop =
   mongoose.models.desktop || model("desktop", desktopSchema);
