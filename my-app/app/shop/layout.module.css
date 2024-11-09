@@ -1,7 +1,29 @@
-.container{
-    margin: 20px;
-    align-items: center;
-    text-align: center;
-    color: dimgrey;
-    font-weight: lighter;
+.layoutContainer h3 {
+  color: black;
+  text-align: center;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 20px;
+  align-items: center;
+  text-align: center;
+  color: rgb(20, 20, 20);
+  font-weight: lighter;
+  /* background-color: red; */
+}
+.productChoiceConfig {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  /* background-color: aqua; */
+  height: 300px;
+  align-self: start;
+  height: auto;
+}
+.children {
+  align-self: start;
+  display: grid;
+}
+.productChoiceConfig div {
+  margin: 80px;
 }

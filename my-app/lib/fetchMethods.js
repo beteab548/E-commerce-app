@@ -30,22 +30,38 @@ export async function fetchModels() {
 }
 export async function handleProductSelection(modelName) {
   if (modelName === "shoe") {
-    const allShoes = await shoe.findOne();
-    const ProductsToObject = {
-      id: allShoes._id.toString(),
-      brand: allShoes.brand,
-      size: allShoes.size,
-      imagePath: allShoes.imagePath,
-      price: allShoes.price,
-      description: allShoes.description,
-      color: allShoes.color,
-      model_name: allShoes.model_name,
-      gender: allShoes.gender,
-      product_type: allShoes.product_type,
-    };
-    console.log(ProductsToObject);
-    return [ProductsToObject];
+    let productObjectArray = [];
+    const allShoes = await shoe.find().limit(5);
+    allShoes.map((allShoes) => {
+      return productObjectArray.push({
+        id: allShoes._id.toString(),
+        brand: allShoes.brand,
+        size: allShoes.size,
+        imagePath: allShoes.imagePath,
+        price: allShoes.price,
+        description: allShoes.description,
+        color: allShoes.color,
+        model_name: allShoes.model_name,
+        gender: allShoes.gender,
+        product_type: allShoes.product_type,
+      });
+    });
+    return productObjectArray;
   }
+    // const ProductsToObject = {
+    //   id: allShoes._id.toString(),
+    //   brand: allShoes.brand,
+    //   size: allShoes.size,
+    //   imagePath: allShoes.imagePath,
+    //   price: allShoes.price,
+    //   description: allShoes.description,
+    //   color: allShoes.color,
+    //   model_name: allShoes.model_name,
+    //   gender: allShoes.gender,
+    //   product_type: allShoes.product_type,
+    // };
+    // console.log(ProductsToObject);
+    // return ProductsToObject;
   if (modelName === "jacket") {
     const allJackets = await jacket.findOne();
     const ProductsToObject = {

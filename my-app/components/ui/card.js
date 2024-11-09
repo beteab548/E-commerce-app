@@ -11,7 +11,7 @@ export default function Card({ title, description, btnText, price,imagePath, top
       {topic === "products" && (
         <>
           <div>
-            <img src={imagePath} alt="products image" />
+            <img src={imagePath} alt="products image" width={120} hieght={120}/>
           </div>
           <div>
             <p>$ {price}</p>
