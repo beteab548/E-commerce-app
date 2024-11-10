@@ -1,6 +1,17 @@
 "use server";
 import mongoose from "mongoose";
-import { shoe, jacket } from "./database";
+import {
+  shoe,
+  jacket,
+  laptop,
+  phone,
+  desktop,
+  car,
+  house,
+  hoddie,
+  tshirt,
+  pants,
+} from "./database";
 
 let URl = "http://localhost:3000/api/";
 let formPage = "login";
@@ -30,7 +41,7 @@ export async function fetchModels() {
 }
 export async function handleProductSelection(modelName) {
   if (modelName === "shoe") {
-    let productObjectArray = [];
+    const productObjectArray = [];
     const allShoes = await shoe.find().limit(5);
     allShoes.map((allShoes) => {
       return productObjectArray.push({
@@ -44,6 +55,177 @@ export async function handleProductSelection(modelName) {
         model_name: allShoes.model_name,
         gender: allShoes.gender,
         product_type: allShoes.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "pants") {
+    const productObjectArray = [];
+    const allPants = await pants.find();
+    allPants.map((allPants) => {
+      return productObjectArray.push({
+        id: allPants._id.toString(),
+        brand: allPants.brand,
+        size: allPants.size,
+        imagePath: allPants.imagePath,
+        price: allPants.price,
+        description: allPants.description,
+        color: allPants.color,
+        model_name: allPants.model_name,
+        gender: allPants.gender,
+        product_type: allPants.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "hoddie") {
+    const productObjectArray = [];
+    const allHoddies = await hoddie.find();
+    allHoddies.map((allHoddies) => {
+      return productObjectArray.push({
+        id: allHoddies._id.toString(),
+        brand: allHoddies.brand,
+        size: allHoddies.size,
+        imagePath: allHoddies.imagePath,
+        price: allHoddies.price,
+        description: allHoddies.description,
+        color: allHoddies.color,
+        model_name: allHoddies.model_name,
+        gender: allHoddies.gender,
+        product_type: allHoddies.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "jacket") {
+    const allJackets = await jacket.find();
+    const productObjectArray = [];
+    allJackets.map((allJackets) => {
+      return productObjectArray.push({
+        id: allJackets._id.toString(),
+        brand: allJackets.brand,
+        size: allJackets.size,
+        imagePath: allJackets.imagePath,
+        price: allJackets.price,
+        description: allJackets.description,
+        color: allJackets.color,
+        model_name: allJackets.model_name,
+        gender: allJackets.gender,
+        product_type: allJackets.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "tshirt") {
+    const allTshirt = await tshirt.find();
+    const productObjectArray = [];
+    allTshirt.map((allTshirt) => {
+      return productObjectArray.push({
+        id: allTshirt._id.toString(),
+        brand: allTshirt.brand,
+        size: allTshirt.size,
+        imagePath: allTshirt.imagePath,
+        price: allTshirt.price,
+        description: allTshirt.description,
+        color: allTshirt.color,
+        model_name: allTshirt.model_name,
+        gender: allTshirt.gender,
+        product_type: allTshirt.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "laptop") {
+    const allLaptops = await laptop.find();
+    const productObjectArray = [];
+    allLaptops.map((allLaptops) => {
+      return productObjectArray.push({
+        id: allLaptops._id.toString(),
+        brand: allLaptops.brand,
+        size: allLaptops.size,
+        imagePath: allLaptops.imagePath,
+        price: allLaptops.price,
+        description: allLaptops.description,
+        color: allLaptops.color,
+        model_name: allLaptops.model_name,
+        gender: allLaptops.gender,
+        product_type: allLaptops.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "desktop") {
+    const allDesktop = await desktop.find();
+    const productObjectArray = [];
+    allDesktop.map((allDesktop) => {
+      return productObjectArray.push({
+        id: allDesktop._id.toString(),
+        brand: allDesktop.brand,
+        size: allDesktop.size,
+        imagePath: allDesktop.imagePath,
+        price: allDesktop.price,
+        description: allDesktop.description,
+        color: allDesktop.color,
+        model_name: allDesktop.model_name,
+        gender: allDesktop.gender,
+        product_type: allDesktop.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "phone") {
+    const allPhones = await phone.find();
+    const productObjectArray = [];
+    allPhones.map((allPhones) => {
+      return productObjectArray.push({
+        id: allPhones._id.toString(),
+        brand: allPhones.brand,
+        size: allPhones.size,
+        imagePath: allPhones.imagePath,
+        price: allPhones.price,
+        description: allPhones.description,
+        color: allPhones.color,
+        model_name: allPhones.model_name,
+        gender: allPhones.gender,
+        product_type: allPhones.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "car") {
+    const allCars = await car.find();
+    const productObjectArray = [];
+    allCars.map((allCars) => {
+      return productObjectArray.push({
+        id: allCars._id.toString(),
+        brand: allCars.brand,
+        size: allCars.size,
+        imagePath: allCars.imagePath,
+        price: allCars.price,
+        description: allCars.description,
+        color: allCars.color,
+        model_name: allCars.model_name,
+        gender: allCars.gender,
+        product_type: allCars.product_type,
+      });
+    });
+    return productObjectArray;
+  }
+  if (modelName === "house") {
+    const allHouses = await house.find();
+    const productObjectArray = [];
+    allHouses.map((allHouses) => {
+      return productObjectArray.push({
+        id: allHouses._id.toString(),
+        brand: allHouses.brand,
+        size: allHouses.size,
+        imagePath: allHouses.imagePath,
+        price: allHouses.price,
+        description: allHouses.description,
+        color: allHouses.color,
+        model_name: allHouses.model_name,
+        gender: allHouses.gender,
+        product_type: allHouses.product_type,
       });
     });
     return productObjectArray;
@@ -62,35 +244,57 @@ export async function handleProductSelection(modelName) {
   // };
   // console.log(ProductsToObject);
   // return ProductsToObject;
-  if (modelName === "jacket") {
-    const allJackets = await jacket.findOne();
-    const ProductsToObject = {
-      id: allJackets._id.toString(),
-      brand: allJackets.brand,
-      size: allJackets.size,
-      imagePath: allJackets.imagePath,
-      price: allJackets.price,
-      description: allJackets.description,
-      color: allJackets.color,
-      gender: allJackets.gender,
-      product_type: allJackets.product_type,
-    };
-    return [ProductsToObject];
-  }
-}
 
-// await shoe.create({
-//   brand: "all star",
-//   description: "brown lether ",
-//   model_name: "all star",
-//   price: "1300",
-//   color: "brown",
-//   gender: "men",
-//   size: 9,
-//   product_type: "shoe",
-//   imagePath:
-//     "https://th.bing.com/th?id=OIP.1RfKeDjiffAd7MnXDykgcQAAAA&w=285&h=219&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-// });
+  // await desktop.create({
+  //   description: "new desktop ",
+  //   model_name: "dell ",
+  //   price: "300",
+  //   Screen_size: "15.6",
+  //   product_type: "desktop",
+  //   imagePath:
+  //     "https://th.bing.com/th/id/OIP.bL7oPfVOHWUp5Fe7m-cJtwHaHa?w=170&h=180&c=7&r=0&o=5&pid=1.7",
+  // });
+  // await car.create({
+  //   model_name: "BMW",
+  //   description: "The newes on the market",
+  //   price: "60000",
+  //   color: "black",
+  //   product_type: "car",
+  //   imagePath:
+  //     "https://th.bing.com/th/id/OIP.bHVKOaMPFF6htsTuCeqyegHaEo?w=255&h=180&c=7&r=0&o=5&pid=1.7",
+  // });
+  // await house.create({
+  //   built_with: "pure wood",
+  //   description: "perfect for a family",
+  //   price: "600000",
+  //   color: "cream",
+  //   address: "kera",
+  //   product_type: "house",
+  //   imagePath:
+  //     "https://th.bing.com/th/id/OIP.gZ56fyMzun2FTOr2pPJ93gHaFc?w=233&h=180&c=7&r=0&o=5&pid=1.7",
+  // });
+  // await tshirt.create({
+  //   brand: "supreme",
+  //   description: "dbz supreme t-shirt",
+  //   price: "150",
+  //   color: "green",
+  //   size: "XXL",
+  //   product_type: "tshirt",
+  //   imagePath:
+  //     "https://th.bing.com/th/id/OIP.OtCgzJ4hBI2VG_W0K-1uRAHaJE?w=202&h=248&c=7&r=0&o=5&pid=1.7",
+  // });
+  // await pants.create({
+  //   brand: "thrasher",
+  //   description: "light jeans",
+  //   price: "250",
+  //   color: "blue",
+  //   gender: "male",
+  //   size: "33",
+  //   product_type: "pants",
+  //   imagePath:
+  //     "https://th.bing.com/th/id/OIP.OtCgzJ4hBI2VG_W0K-1uRAHaJE?w=202&h=248&c=7&r=0&o=5&pid=1.7",
+  // });
+}
 //   await jacket.create({
 //     brand: "gucci",
 //     description: "brown lether ",

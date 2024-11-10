@@ -50,7 +50,7 @@ export default function ConfigProductChoice() {
       {(config_product_choice === "shoe" ||
         config_product_choice === "jacket" ||
         config_product_choice === "pants" ||
-        config_product_choice === "tshert" ||
+        config_product_choice === "tshirt" ||
         config_product_choice === "hoddie") && (
         <>
           
