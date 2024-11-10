@@ -21,3 +21,7 @@
   .slider:hover {
     opacity: 1;
   }
+  .checkBoxs{
+display: flex;
+flex-direction: column;
+  }

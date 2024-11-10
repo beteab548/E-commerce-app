@@ -2,15 +2,17 @@
 import classes from "./shop.module.css";
 import Card from "@/components/ui/card";
 import { fetchModels } from "@/lib/fetchMethods";
-import { useEffect, useState, useRef, Suspense } from "react";
+import { useEffect, useState, useRef } from "react";
 import { handleProductSelection } from "@/lib/fetchMethods";
-
+import { useDispatch } from "react-redux";
+import { changeProdType } from "@/lib/redux/config_product_choice_slice";
 export default function ButtonRow() {
   //needs a better optimised way of retiving the product menu
   const containerRef = useRef(null);
   const [modelNames, setModelsName] = useState([]);
   const [productsArray, setProductsArray] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const dispatch=useDispatch()
   useEffect(() => {
     async function fetchData() {
       const modelNameArray = await fetchModels();
@@ -20,6 +22,7 @@ export default function ButtonRow() {
   }, []);
   async function handelFetchProducts(ProductName) {
     setIsLoading(true);
+    dispatch(changeProdType(ProductName))
     const productsData = await handleProductSelection(ProductName);
     setProductsArray(productsData);
     setIsLoading(false);
