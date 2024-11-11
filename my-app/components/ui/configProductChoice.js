@@ -1,5 +1,5 @@
 "use client";
-import classes from "@/app/shop/layout.module.css";
+import classes from "@/app/shop/products/layout.module.css";
 import conficClasses from "./configureProductChoice.module.css";
 import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,9 +53,8 @@ export default function ConfigProductChoice() {
         config_product_choice === "tshirt" ||
         config_product_choice === "hoddie") && (
         <>
-          
+          <p>Size</p>
           <div className={conficClasses.checkBoxs}>
-            <p>Size</p>
             <input type="checkbox" /> box 1
             <input type="checkbox" />
             box 2
@@ -66,8 +65,8 @@ export default function ConfigProductChoice() {
             <input type="checkbox" />
             box 5
           </div>
+          <p>Gender</p>
           <div className={conficClasses.checkBoxs}>
-            <p>Gender</p>
             <input type="checkbox" />
             female
             <input type="checkbox" />
@@ -77,7 +76,81 @@ export default function ConfigProductChoice() {
           </div>
         </>
       )}
-      <div>selecte 4</div>
+      {config_product_choice === "car" && (
+        <>
+          <p>brand</p>
+          <div className={conficClasses.checkBoxs}>
+            <input type="checkbox" />
+            bmw
+            <input type="checkbox" />
+            toyota
+            <input type="checkbox" />
+            honda
+            <input type="checkbox" />
+            nissan
+          </div>
+        </>
+      )}
+      {config_product_choice === "house" && (
+        <>
+          <p>Built Quality</p>
+          <div className={conficClasses.checkBoxs}>
+            <input type="checkbox" />
+            wood
+            <input type="checkbox" />
+            ceramic
+            <input type="checkbox" />
+            log
+            <input type="checkbox" />
+            clay
+          </div>
+        </>
+      )}
+      {config_product_choice === "phone" && (
+        <>
+          <p>Screen Size</p>
+          <div className={conficClasses.checkBoxs}>
+            <input type="checkbox" />
+            6'
+            <input type="checkbox" />
+            7'
+            <input type="checkbox" />
+            8'
+            <input type="checkbox" />
+            9'
+          </div>
+        </>
+      )}
+      {config_product_choice === "laptop" && (
+        <>
+          <p>Screen Size</p>
+          <div className={conficClasses.checkBoxs}>
+            <input type="checkbox" />
+            12"
+            <input type="checkbox" />
+            14"
+            <input type="checkbox" />
+            15"
+            <input type="checkbox" />
+            16"
+          </div>
+        </>
+      )}
+      {config_product_choice === "desktop" && (
+        <>
+          <p>storage Size</p>
+          <div className={conficClasses.checkBoxs}>
+            <input type="checkbox" />
+            256 GB
+            <input type="checkbox" />
+            500 GB
+            <input type="checkbox" />
+            1 TB
+            <input type="checkbox" />
+            1.5 Tb
+          </div>
+        </>
+      )}
     </div>
   );
 }

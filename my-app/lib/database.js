@@ -63,7 +63,6 @@ const phoneSchema = new Schema({
   product_type: { type: SchemaTypes.String, required: true },
 });
 export const phone = mongoose.models.phone || model("phone", phoneSchema);
-
 const tshirtSchema = new Schema({
   brand: { type: SchemaTypes.String, required: true },
   description: { type: SchemaTypes.String, required: true },

@@ -68,6 +68,8 @@ export default function ButtonRow() {
                 description={products.description}
                 price={products.price}
                 btnText={"buy"}
+                product_type={products.product_type}
+                product_id={products.id}
               />
             );
           })}

@@ -57,7 +57,7 @@ export default function AuthForm({ formFormat }) {
               }
             >
               {formFormat === "Register"
-                ? "Login Existing Account"
+                ? "Log Into Existing Account"
                 : "Create New Account"}{" "}
             </Link>
           </div>

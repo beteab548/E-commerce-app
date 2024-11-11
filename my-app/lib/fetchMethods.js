@@ -90,7 +90,6 @@ export async function handleProductSelection(modelName) {
         price: allHoddies.price,
         description: allHoddies.description,
         color: allHoddies.color,
-        model_name: allHoddies.model_name,
         gender: allHoddies.gender,
         product_type: allHoddies.product_type,
       });
@@ -109,7 +108,6 @@ export async function handleProductSelection(modelName) {
         price: allJackets.price,
         description: allJackets.description,
         color: allJackets.color,
-        model_name: allJackets.model_name,
         gender: allJackets.gender,
         product_type: allJackets.product_type,
       });
@@ -128,7 +126,6 @@ export async function handleProductSelection(modelName) {
         price: allTshirt.price,
         description: allTshirt.description,
         color: allTshirt.color,
-        model_name: allTshirt.model_name,
         gender: allTshirt.gender,
         product_type: allTshirt.product_type,
       });
@@ -141,14 +138,11 @@ export async function handleProductSelection(modelName) {
     allLaptops.map((allLaptops) => {
       return productObjectArray.push({
         id: allLaptops._id.toString(),
-        brand: allLaptops.brand,
         size: allLaptops.size,
         imagePath: allLaptops.imagePath,
         price: allLaptops.price,
         description: allLaptops.description,
-        color: allLaptops.color,
         model_name: allLaptops.model_name,
-        gender: allLaptops.gender,
         product_type: allLaptops.product_type,
       });
     });
@@ -165,9 +159,8 @@ export async function handleProductSelection(modelName) {
         imagePath: allDesktop.imagePath,
         price: allDesktop.price,
         description: allDesktop.description,
-        color: allDesktop.color,
         model_name: allDesktop.model_name,
-        gender: allDesktop.gender,
+        Storage_size: allDesktop.storage_size,
         product_type: allDesktop.product_type,
       });
     });
@@ -185,8 +178,6 @@ export async function handleProductSelection(modelName) {
         price: allPhones.price,
         description: allPhones.description,
         color: allPhones.color,
-        model_name: allPhones.model_name,
-        gender: allPhones.gender,
         product_type: allPhones.product_type,
       });
     });
@@ -198,14 +189,10 @@ export async function handleProductSelection(modelName) {
     allCars.map((allCars) => {
       return productObjectArray.push({
         id: allCars._id.toString(),
-        brand: allCars.brand,
-        size: allCars.size,
         imagePath: allCars.imagePath,
         price: allCars.price,
         description: allCars.description,
-        color: allCars.color,
         model_name: allCars.model_name,
-        gender: allCars.gender,
         product_type: allCars.product_type,
       });
     });
@@ -217,14 +204,11 @@ export async function handleProductSelection(modelName) {
     allHouses.map((allHouses) => {
       return productObjectArray.push({
         id: allHouses._id.toString(),
-        brand: allHouses.brand,
-        size: allHouses.size,
+        built_with: allHouses.built_with,
         imagePath: allHouses.imagePath,
         price: allHouses.price,
         description: allHouses.description,
         color: allHouses.color,
-        model_name: allHouses.model_name,
-        gender: allHouses.gender,
         product_type: allHouses.product_type,
       });
     });
