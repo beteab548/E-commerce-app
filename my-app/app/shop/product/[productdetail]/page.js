@@ -2,6 +2,7 @@
 import { useParams } from "next/navigation";
 import { fetchSingleProduct } from "@/lib/fetchMethods";
 import { useEffect, useState } from "react";
+import ProductDetail from "@/components/ui/detailPage";
 export default function ProductsDetail() {
   const param = useParams();
   const searchParams = decodeURIComponent(param.productdetail).split("=");
@@ -10,7 +11,6 @@ export default function ProductsDetail() {
   const product_type = values[0];
   const [isLoading, setIsLoading] = useState(false);
   const [productData, setProductData] = useState([]);
-
   useEffect(() => {
     async function fetchProdData() {
       setIsLoading(true);
@@ -20,6 +20,12 @@ export default function ProductsDetail() {
     }
     fetchProdData();
   }, []);
-
-
+  return (
+    <ProductDetail
+      model_name={productData.model_name}
+      imagePath={productData.imagePath}
+      price={productData.price}
+      description={productData.description}
+    />
+);
 }
