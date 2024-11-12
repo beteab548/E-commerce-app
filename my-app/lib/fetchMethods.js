@@ -291,16 +291,36 @@ export async function handleProductSelection(modelName) {
 //     " https://th.bing.com/th/id/OIP.6fjBx_fD9V6TvcbVxDLXxQHaIl?w=205&h=238&c=7&r=0&o=5&pid=1.7"
 //   });}
 // }
-export async function fetchSingleProduct(product_type, id) {
-  const productData = await fetch(
-    `/product/?product_type=${product_type} & id=${id}`,
-    {
-      method: "POST",
-      headers: {
-        "Content_Type": "application/json",
-      },
-      body: JSON.stringify({ product_type: product_type, id: id }),
-    }
-  );
-  return productData;
+export async function fetchSingleProduct(product_type, product_id) {
+  let productDetailObject = [];
+  try {
+    const productData = await fetch(
+      `http://localhost:3000/api/product/?product_type=${product_type}&id=${product_id}`,
+      {
+        method: "POST",
+        headers: {
+          Content_Type: "application/json",
+        },
+        body: JSON.stringify({
+          product_type: product_type,
+          product_id: product_id,
+        }),
+      }
+    );
+    const {product_detail} = await productData.json();
+    productDetailObject = {
+      id: product_detail[0]._id.toString(),
+      model_name: product_detail[0].model_name,
+      description: product_detail[0].description,
+      price: product_detail[0].price,
+      imagePath: product_detail[0].imagePath,
+      product_type: product_detail[0].product_type,
+    };
+    return productDetailObject;
+  } catch (err) {
+    console.log(err);
+  }
+
+  // const productDetailData=await productData.json()
+  //   return productData;
 }

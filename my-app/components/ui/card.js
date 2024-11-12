@@ -38,7 +38,7 @@ export default function Card({
       <div>
         <Button
           textDisplay={btnText}
-          path={`/shop/product/?product_type=${product_type}&id=${product_id}`}
+          path={`/shop/product/product_type=${product_type}&id=${product_id}`}
         />
       </div>
     </div>

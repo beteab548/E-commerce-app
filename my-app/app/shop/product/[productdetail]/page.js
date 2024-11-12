@@ -1,19 +1,25 @@
-'use client'
-import { fetchSingleProduct } from "@/lib/fetchMethods";
+"use client";
 import { useParams } from "next/navigation";
-export default  function ProductsDetail() {
-   const {productdetail}= useParams()
-   console.log(decodeURIComponent(productdetail));
-//   const { product_type, id } =  params.productdetail;
-// async function awaitParams(){
-//    const param=await params
-// console.log(param);
-// }
-// awaitParams()
-//   async function fetchProdData() {
-//     const singleProdData = await fetchSingleProduct(product_type, id);
-//     console.log(singleProdData);
-//   }
-//   fetchProdData()
-  return <h2>this the products detail page</h2>;
+import { fetchSingleProduct } from "@/lib/fetchMethods";
+import { useEffect, useState } from "react";
+export default function ProductsDetail() {
+  const param = useParams();
+  const searchParams = decodeURIComponent(param.productdetail).split("=");
+  const values = searchParams[1].split("&");
+  const product_id = searchParams[2];
+  const product_type = values[0];
+  const [isLoading, setIsLoading] = useState(false);
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    async function fetchProdData() {
+      setIsLoading(true);
+      const singleProdData = await fetchSingleProduct(product_type, product_id);
+      setProductData(singleProdData);
+      setIsLoading(false);
+    }
+    fetchProdData();
+  }, []);
+
+
 }
