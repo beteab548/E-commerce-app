@@ -8,9 +8,8 @@ import Shop from "../shop";
 import classes from "./mainheader.module.css";
 import logo from "@/public/logo.svg";
 import Image from "next/image";
-import { useRef } from "react";
 
-export default function MainHedaer() {
+export default function MainHeader() {
   return (
     <>
       <header className={classes.header}>

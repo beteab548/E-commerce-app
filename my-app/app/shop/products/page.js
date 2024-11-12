@@ -6,6 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import { handleProductSelection } from "@/lib/fetchMethods";
 import { useDispatch } from "react-redux";
 import { changeProdType } from "@/lib/redux/config_product_choice_slice";
+import { setLoadingPageStateToTrue,setLoadingPageStateToFalse } from "@/lib/redux/pageLoadingSlice";
 export default function ButtonRow() {
   //needs a better optimised way of retiving the product menu
   const containerRef = useRef(null);
@@ -23,8 +24,10 @@ export default function ButtonRow() {
   async function handelFetchProducts(ProductName) {
     setIsLoading(true);
     dispatch(changeProdType(ProductName))
+    dispatch(setLoadingPageStateToTrue())
     const productsData = await handleProductSelection(ProductName);
     setProductsArray(productsData);
+    dispatch(setLoadingPageStateToFalse())
     setIsLoading(false);
   }
   const handleScroll = (event) => {

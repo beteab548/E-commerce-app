@@ -59,20 +59,22 @@ export default function ConfigProductChoice() {
             <input type="checkbox" />
             box 2
             <input type="checkbox" />
-            box 3
-            <input type="checkbox" />
+            box 3 <input type="checkbox" />
             box 4
             <input type="checkbox" />
             box 5
           </div>
           <p>Gender</p>
           <div className={conficClasses.checkBoxs}>
-            <input type="checkbox" />
-            female
-            <input type="checkbox" />
-            male
-            <input type="checkbox" />
-            both
+            <label htmlFor="female">
+              female <input type="checkbox" value={"Female"} id="female" />
+            </label>
+            <label htmlFor="male">
+              male <input type="checkbox" value={"Male"} id="male" />
+            </label>
+            <label htmlFor="both">
+              both <input type="checkbox" value={"Both"} id="both" />
+            </label>
           </div>
         </>
       )}

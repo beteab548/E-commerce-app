@@ -11,6 +11,7 @@ import {
   hoddie,
   tshirt,
   pants,
+  Connect,
 } from "./database";
 
 let URl = "http://localhost:3000/api/";
@@ -40,6 +41,7 @@ export async function fetchModels() {
   return mongoose.modelNames().slice(1);
 }
 export async function handleProductSelection(modelName) {
+  await Connect();
   if (modelName === "shoe") {
     const productObjectArray = [];
     const allShoes = await shoe.find().limit(5);
@@ -57,7 +59,13 @@ export async function handleProductSelection(modelName) {
         product_type: allShoes.product_type,
       });
     });
-    return productObjectArray;
+    //display how progress bar works when the resul is delayed
+    // return new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve(productObjectArray);
+    //   }, 3000);
+    // });
+    return productObjectArray
   }
   if (modelName === "pants") {
     const productObjectArray = [];
@@ -307,7 +315,7 @@ export async function fetchSingleProduct(product_type, product_id) {
         }),
       }
     );
-    const {product_detail} = await productData.json();
+    const { product_detail } = await productData.json();
     productDetailObject = {
       id: product_detail[0]._id.toString(),
       model_name: product_detail[0].model_name,

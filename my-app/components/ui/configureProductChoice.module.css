@@ -21,7 +21,10 @@
   .slider:hover {
     opacity: 1;
   }
-  .checkBoxs{
+  .checkBoxs label{
 display: flex;
 flex-direction: column;
+align-items: center;
+margin: 20px;
   }
+
