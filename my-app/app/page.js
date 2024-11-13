@@ -9,12 +9,12 @@ export default function HomePage() {
     <>
       <section className={classes.homeContainer}>
         <div className={classes.leftItmes}>
-          <Image src={logo} width={300} height={400} alt="logo image" />
+          <Image src={logo} width={300} height={400} alt="logoImage.svg" />
         </div>
         <div className={classes.rightItmes}>
           <h1>shop everything you want now!</h1>
           <h2>this is an online merkato for domestic sells and purchases.</h2>
-          <Button textDisplay={"shop"} path={"/shop"} />
+          <Button textDisplay={"shop"} path={"/shop/products"} />
         </div>
       </section>
       <section>

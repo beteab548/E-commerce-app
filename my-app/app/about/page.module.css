@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    color: rgb(46, 45, 45);
+}
+.container p{
+    word-break: normal;
+    width: 1200px;
+}
