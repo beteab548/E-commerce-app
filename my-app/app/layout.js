@@ -33,10 +33,8 @@ export default function RootLayout({ children }) {
     </Provider>
   );
 }
-// A separate component to handle the NProgress logic
 function LayoutWithProgressBar({ children }) {
   const isLoading = useSelector((state) => state.page_Loading_Slice.isLoading);
-  // Start or stop the progress bar based on isLoading
   if (isLoading) {
     NProgress.start();
   } else {

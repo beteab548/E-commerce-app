@@ -12,7 +12,6 @@ export default function ButtonRow() {
   const containerRef = useRef(null);
   const [modelNames, setModelsName] = useState([]);
   const [productsArray, setProductsArray] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const dispatch=useDispatch()
   useEffect(() => {
     async function fetchData() {
@@ -22,13 +21,12 @@ export default function ButtonRow() {
     fetchData();
   }, []);
   async function handelFetchProducts(ProductName) {
-    setIsLoading(true);
     dispatch(changeProdType(ProductName))
     dispatch(setLoadingPageStateToTrue())
     const productsData = await handleProductSelection(ProductName);
     setProductsArray(productsData);
     dispatch(setLoadingPageStateToFalse())
-    setIsLoading(false);
+
   }
   const handleScroll = (event) => {
     // Prevent vertical scroll; only scroll horizontally within the button row
@@ -60,7 +58,7 @@ export default function ButtonRow() {
       </div>
       <main className={classes.ProductsContainer}>
         <h2>Featured Products now</h2>
-        <p>{isLoading ? "fetching products" : null}</p>
+      
         <ul>
           {productsArray.map((products, index) => {
             return (

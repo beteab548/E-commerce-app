@@ -11,7 +11,6 @@ export default function ConfigProductChoice() {
   const config_product_choice = useSelector((state) => {
     return state.config_product_choice.Product_type;
   });
-  console.log(config_product_choice);
   function handleMouseRelease() {
     setPriceValue(sliderValue.current.value);
   }

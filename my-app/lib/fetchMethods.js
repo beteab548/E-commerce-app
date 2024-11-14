@@ -65,7 +65,7 @@ export async function handleProductSelection(modelName) {
     //     resolve(productObjectArray);
     //   }, 3000);
     // });
-    return productObjectArray
+    return productObjectArray;
   }
   if (modelName === "pants") {
     const productObjectArray = [];
@@ -324,6 +324,9 @@ export async function fetchSingleProduct(product_type, product_id) {
       imagePath: product_detail[0].imagePath,
       product_type: product_detail[0].product_type,
     };
+    await new Promise((resolve) => {
+      setTimeout(() => resolve(), 4000);
+    });
     return productDetailObject;
   } catch (err) {
     console.log(err);

@@ -1,4 +1,4 @@
-const { default: AuthForm } = require("@/components/auth-form");
+import AuthForm from "@/components/auth-form";
 export default function Account() {
   return <AuthForm formFormat={"Reset-Password"} />;
 }

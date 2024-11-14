@@ -1,7 +1,5 @@
-'use client'
 import ConfigProductChoice from "@/components/ui/configProductChoice";
 import classes from "./layout.module.css";
-
 // export const metadata = {
 //   title: "shop",
 //   description: "simply sell and buy!",
