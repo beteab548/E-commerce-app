@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  color: rgb(39, 38, 38);
+}
+.container p{
+    text-align: center;
+    margin-top: 10px;
+}
+.products {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 90px;
+}

@@ -6,13 +6,16 @@ import { useEffect, useState, useRef } from "react";
 import { handleProductSelection } from "@/lib/fetchMethods";
 import { useDispatch } from "react-redux";
 import { changeProdType } from "@/lib/redux/config_product_choice_slice";
-import { setLoadingPageStateToTrue,setLoadingPageStateToFalse } from "@/lib/redux/pageLoadingSlice";
+import {
+  setLoadingPageStateToTrue,
+  setLoadingPageStateToFalse,
+} from "@/lib/redux/pageLoadingSlice";
 export default function ButtonRow() {
   //needs a better optimised way of retiving the product menu
   const containerRef = useRef(null);
   const [modelNames, setModelsName] = useState([]);
   const [productsArray, setProductsArray] = useState([]);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
     async function fetchData() {
       const modelNameArray = await fetchModels();
@@ -21,12 +24,11 @@ export default function ButtonRow() {
     fetchData();
   }, []);
   async function handelFetchProducts(ProductName) {
-    dispatch(changeProdType(ProductName))
-    dispatch(setLoadingPageStateToTrue())
+    dispatch(changeProdType(ProductName));
+    dispatch(setLoadingPageStateToTrue());
     const productsData = await handleProductSelection(ProductName);
     setProductsArray(productsData);
-    dispatch(setLoadingPageStateToFalse())
-
+    dispatch(setLoadingPageStateToFalse());
   }
   const handleScroll = (event) => {
     // Prevent vertical scroll; only scroll horizontally within the button row
@@ -58,8 +60,9 @@ export default function ButtonRow() {
       </div>
       <main className={classes.ProductsContainer}>
         <h2>Featured Products now</h2>
-      
+
         <ul>
+          {/* {productsArray == [] && <p>No Products Available yet</p>} */}
           {productsArray.map((products, index) => {
             return (
               <Card
