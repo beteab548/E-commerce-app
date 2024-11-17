@@ -3,12 +3,25 @@
   grid-template-columns: 3fr 1fr;
   color: rgb(39, 38, 38);
 }
-.container p{
-    text-align: center;
-    margin-top: 10px;
+.container p {
+  text-align: center;
+  margin-top: 10px;
 }
 .products {
   display: grid;
   grid-template-columns: auto;
-  gap: 90px;
+  align-self: self-start;
+}
+.checkout p {
+  font-size: larger;
+  font-weight: bolder;
+}
+.checkout {
+  /* border-bottom: 1px solid rgb(207, 205, 205); */
+  border-left: 1px solid rgb(207, 205, 205);
+  border-right: 1px solid rgb(207, 205, 205);
+  height: fit-content;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

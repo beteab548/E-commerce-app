@@ -32,6 +32,7 @@ export default function CartProducts() {
         "https://th.bing.com/th?id=OIP.1RfKeDjiffAd7MnXDykgcQAAAA&w=285&h=219&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
       quantity: 1,
     },
+    
   ];
   return (
     <main className={classes.cartContainer}>

@@ -1,5 +1,6 @@
 import CartProducts from "@/components/ui/cartProducts";
 import classes from "./cart.module.css";
+import CheckOut from "../checkout/page";
 export default function Cart() {
   return (
     <div className={classes.container}>
@@ -7,7 +8,10 @@ export default function Cart() {
         <p>Cart Items List</p>
         <CartProducts />
       </div>
-      <div className={classes.checkout}>this is the order checkout button</div>
+      <div className={classes.checkout}>
+        <p>Checkout Summary</p>
+        <CheckOut />
+      </div>
     </div>
   );
 }
