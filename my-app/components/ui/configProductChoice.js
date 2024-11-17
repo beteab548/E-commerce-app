@@ -26,7 +26,7 @@ export default function ConfigProductChoice() {
           type="range"
           className={conficClasses.slider}
           min={1}
-          max={2000}
+          max={+priceValue2-1}
           value={priceValue}
           ref={sliderValue}
           onMouseUp={handleMouseRelease}
@@ -36,7 +36,7 @@ export default function ConfigProductChoice() {
         <input
           type="range"
           className={conficClasses.slider}
-          min={1}
+          min={+priceValue+1}
           max={2000}
           ref={sliderValue2}
           onMouseUp={handleMouseRelease2}

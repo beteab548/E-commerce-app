@@ -17,7 +17,6 @@
   font-weight: bolder;
 }
 .checkout {
-  /* border-bottom: 1px solid rgb(207, 205, 205); */
   border-left: 1px solid rgb(207, 205, 205);
   border-right: 1px solid rgb(207, 205, 205);
   height: fit-content;
