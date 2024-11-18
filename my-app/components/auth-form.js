@@ -1,20 +1,17 @@
 "use client";
 import Link from "next/link";
 import classes from "./auth.module.css";
-import { handleFormBtn } from "@/lib/fetchMethods";
+import { useActionState } from "react";
+import { Login } from "@/lib/actions";
 export default function AuthForm({ formFormat }) {
+  const [state, formAction] = useActionState(Login,undefined);
   let btnText = "Login";
   if (formFormat) {
     btnText = formFormat;
   }
   return (
     <div className={classes.container}>
-      <form
-        className={classes.form}
-        action={(formdata) => {
-          handleFormBtn(btnText, formdata);
-        }}
-      >
+      <form className={classes.form} action={formAction}>
         <h1>{btnText}</h1>
         {formFormat === "Reset-Password" && (
           <div>

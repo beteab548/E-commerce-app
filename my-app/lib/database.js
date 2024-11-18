@@ -131,7 +131,7 @@ const cartSchema = new Schema({
   userId: { type: SchemaTypes.String, required: true, ref: "User" },
   cart: {
     Items: {
-      products: [{}],
+      products: [],
     },
   },
 });
