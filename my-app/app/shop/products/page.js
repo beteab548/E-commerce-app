@@ -32,7 +32,7 @@ export default function ButtonRow() {
   }
   const handleScroll = (event) => {
     // Prevent vertical scroll; only scroll horizontally within the button row
-    event.preventDefault();
+    // event.preventDefault(); //this is causing the code to slow down
     containerRef.current.scrollLeft += event.deltaY;
   };
   // console.log(modelNames);

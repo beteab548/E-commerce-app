@@ -4,7 +4,7 @@ import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 const secretkey = process.env.SECRET_KEY;
-const ednodedSecretKey=new TextEncoder().encode(secretkey)
+const endcodedSecretKey = new TextEncoder().encode(secretkey);
 export async function Login(prevState, formdata) {
   const dummyUser = {
     userId: "3443",
@@ -56,11 +56,11 @@ async function Ecrypt(payload) {
     .setProtectedHeader({ alg: "HS256" })
     .setExpirationTime("7d")
     .setIssuedAt()
-    .sign(ednodedSecretKey); //might wanna use the textEndcoder to provide more salt to the secrete key
+    .sign(endcodedSecretKey); //might wanna use the textEndcoder to provide more salt to the secrete key
 }
 async function Decrypt(session) {
   try {
-    const { payload } = await jwtVerify(session, ednodedSecretKey, {
+    const { payload } = await jwtVerify(session, endcodedSecretKey, {
       algorithms: "HS256",
     });
     return payload;

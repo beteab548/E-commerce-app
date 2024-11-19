@@ -6,7 +6,7 @@ import Profile from "../profile";
 import Search from "../search";
 import Shop from "../shop";
 import classes from "./mainheader.module.css";
-import logo from "@/public/logo.svg";
+import logo from "@/public/logo.svg"
 import Image from "next/image";
 
 export default function MainHeader() {
