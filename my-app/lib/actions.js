@@ -42,11 +42,17 @@ export async function Login(prevState, formdata) {
 async function createSession(userId) {
   const expireDate = new Date(Date.now() * 7 * 24 * 60 * 60 * 1000);
   const session = await Ecrypt({ userId });
-  cookies().set("session", session, {
-    httpOnly: true,
-    secure: true,
-    expires: expireDate,
-  });
+  try {
+    (await cookies()).set("session", session, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      expires: expireDate,
+      sameSite: "strict",
+      path: "/",
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 // async function destroySession(session) {
 //   await cookies().delete(session);
@@ -58,13 +64,11 @@ async function Ecrypt(payload) {
     .setIssuedAt()
     .sign(endcodedSecretKey); //might wanna use the textEndcoder to provide more salt to the secrete key
 }
-async function Decrypt(session) {
+export async function Decrypt(session) {
   try {
     const { payload } = await jwtVerify(session, endcodedSecretKey, {
-      algorithms: "HS256",
+      algorithms: ["HS256"],
     });
     return payload;
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 }
