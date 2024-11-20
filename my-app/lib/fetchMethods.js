@@ -39,7 +39,12 @@ let formPage = "login";
 //   const resData = await response.json();
 // }
 export async function fetchModels() {
-  return mongoose.modelNames().slice(1);
+  const allModels = mongoose.modelNames();
+  const itemsToExclude = ["User", "cart", "order"];
+  const modelNames = allModels.filter((models) => {
+    return !itemsToExclude.includes(models);
+  });
+  return modelNames;
 }
 export async function handleProductSelection(modelName) {
   await Connect();

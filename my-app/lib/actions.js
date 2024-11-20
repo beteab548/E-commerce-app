@@ -85,16 +85,19 @@ export async function cartAction(prodToAdd) {
   const { userId } = await Decrypt(cookie.value);
   const parsedProduct = JSON.parse(newProdToAdd);
   parsedProduct.id = new mongoose.Types.ObjectId(parsedProduct.id);
+  parsedProduct.quantity = 1;
   const productToBeAdd = {
     userId: userId,
     cart: { Items: { products: parsedProduct } },
   };
+  console.log(productToBeAdd);
   const cartExists = await cart.findOne({ userId: userId });
   if (!cartExists) {
     await cart.create(productToBeAdd);
     redirect("/shop/products");
   } else {
     //here check if the product to be added is also in teh cart and inceramt its quanity if exists if not push the nex product to the array
+
     console.log(cartExists);
   }
 }

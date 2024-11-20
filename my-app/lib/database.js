@@ -138,6 +138,12 @@ const cartSchema = new Schema({
 export const cart = mongoose.models.cart || model("cart", cartSchema);
 const orderSchema = new Schema({
   userId: { type: SchemaTypes.ObjectId, ref: "User" },
-  items: [],
+  cart: {
+    Items: {
+      products: {
+        type: SchemaTypes.Array,
+      },
+    },
+  },
 });
 export const order = mongoose.models.order || model("order", orderSchema);
