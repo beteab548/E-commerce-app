@@ -13,6 +13,7 @@ export default function CartProducts() {
     fetchData();
   }, []);
   //fetch to an api to get he cart items and get them here
+  console.log(cartItmes);
   return (
     <main className={classes.cartContainer}>
       <ul className={classes.container}>
@@ -22,7 +23,7 @@ export default function CartProducts() {
           <div>Quantity </div>
           <div>Total </div>
         </div>
-        {cartItmes?.cartProducts?.map((products) => {
+        {cartItmes?.map((products) => {
           return (
             <>
               <hr />

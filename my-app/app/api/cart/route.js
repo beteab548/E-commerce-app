@@ -6,10 +6,9 @@ import { NextResponse } from "next/server";
 import { Decrypt } from "@/lib/actions";
 export async function GET() {
   await Connect();
-  const carts = await cart.findOne();
-  const cartProducts = carts.cart.Items.products;
+  const carts = await cart.find();
   if (!carts) {
     return NextResponse.json({ message: "error fetching cart items" });
   }
-  return NextResponse.json({ cartProducts: cartProducts });
+  return NextResponse.json({ cartProducts: carts });
 }

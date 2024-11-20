@@ -89,8 +89,14 @@ export async function cartAction(prodToAdd) {
     userId: userId,
     cart: { Items: { products: parsedProduct } },
   };
-  await cart.create(productToBeAdd);
-  redirect("/shop/products");
+  const cartExists = await cart.findOne({ userId: userId });
+  if (!cartExists) {
+    await cart.create(productToBeAdd);
+    redirect("/shop/products");
+  } else {
+    //here check if the product to be added is also in teh cart and inceramt its quanity if exists if not push the nex product to the array
+    console.log(cartExists);
+  }
 }
 export async function register(formdata) {
   const formsData = Object.fromEntries(formdata);

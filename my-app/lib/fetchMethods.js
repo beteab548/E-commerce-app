@@ -337,5 +337,5 @@ export async function fetchSingleProduct(product_type, product_id) {
 export async function fetchCartItems() {
   const response = await fetch("http://localhost:3000/api/cart");
   const resData = await response.json();
-  return resData;
+  return resData.cartProducts;
 }
