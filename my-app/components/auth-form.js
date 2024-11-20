@@ -3,7 +3,7 @@ import Link from "next/link";
 import classes from "./auth.module.css";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
-import { Login } from "@/lib/actions";
+import { Login, register } from "@/lib/actions";
 export default function AuthForm({ formFormat }) {
   const [state, formAction] = useActionState(Login, undefined);
   let btnText = "Login";
@@ -12,7 +12,10 @@ export default function AuthForm({ formFormat }) {
   }
   return (
     <div className={classes.container}>
-      <form className={classes.form} action={formAction}>
+      <form
+        className={classes.form}
+        action={btnText === "Login" ? formAction : register}
+      >
         <h1>{btnText}</h1>
         {formFormat === "Reset-Password" && (
           <div>
@@ -48,17 +51,16 @@ export default function AuthForm({ formFormat }) {
               {state?.password && (
                 <p className={classes.error}>{state.password}</p>
               )}
-              <Button btnText={btnText} />
               {formFormat === "Register" && (
                 <div>
                   <input
                     type="password"
                     placeholder="confirm password"
                     name="confirm-password"
-                    required
                   />
                 </div>
               )}
+              <Button btnText={btnText} />
             </>
           )}
         <div></div>

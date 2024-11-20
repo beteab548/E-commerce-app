@@ -1,4 +1,4 @@
-export default function LoggedPage({ userid }) {
-  console.log(userid);
-  return <h1>{userid}</h1>;
+export default function LoggedPage({ email }) {
+//here i access the order history based on the userid and return
+  return <h1>welcome {email}</h1>;
 }

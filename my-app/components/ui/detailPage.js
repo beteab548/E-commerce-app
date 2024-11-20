@@ -1,11 +1,9 @@
-import Button from "./button";
+"use client";
 import classes from "./detailPage.module.css";
-export default function ProductDetail({
-  model_name,
-  price,
-  description,
-  imagePath,
-}) {
+import { cartAction } from "@/lib/actions";
+export default function ProductDetail({ productInfo }) {
+  const { model_name, price, description, imagePath, gender } = productInfo;
+ const updatedProductInfo=JSON.stringify(productInfo)
   return (
     <div className={classes.container}>
       <div>
@@ -20,7 +18,13 @@ export default function ProductDetail({
       <div>
         <p>{description}</p>
       </div>
-      <Button path={"/cart"} textDisplay={"add to cart"} />
+      <form action={cartAction}>
+        <input type="hidden" value={updatedProductInfo} name="productInfo" />
+        {/* <input type="hidden" value={"input values"} name="productInfo" /> */}
+        <button type="submit" className={classes.button}>
+          Add To cart
+        </button>
+      </form>
     </div>
   );
 }

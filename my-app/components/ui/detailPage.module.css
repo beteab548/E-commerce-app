@@ -1,8 +1,17 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: rgb(58, 57, 57);
-margin: 15px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(58, 57, 57);
+  margin: 15px;
+}
+.button {
+  height: 50px;
+  width: 100px;
+  margin-top: 20px;
+}
+.button:hover{
+    background-color: rgb(241, 120, 140);
+    color: white;
 }

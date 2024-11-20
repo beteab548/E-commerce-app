@@ -16,7 +16,7 @@ import {
 
 let URl = "http://localhost:3000/api/";
 let formPage = "login";
-          //dummy form actions 
+//dummy form actions
 // export async function handleFormBtn(btnText, formdata) {
 //   let method = "POST";
 //   const updatedBtnText = btnText.toLowerCase();
@@ -333,4 +333,9 @@ export async function fetchSingleProduct(product_type, product_id) {
 
   // const productDetailData=await productData.json()
   //   return productData;
+}
+export async function fetchCartItems() {
+  const response = await fetch("http://localhost:3000/api/cart");
+  const resData = await response.json();
+  return resData;
 }

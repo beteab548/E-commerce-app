@@ -1,39 +1,18 @@
+"use client";
 import Link from "next/link";
+
+import { fetchCartItems } from "@/lib/fetchMethods";
 import classes from "./cartProducts.module.css";
+import { useEffect, useState } from "react";
 export default function CartProducts() {
-  const cart = [
-    {
-      id: "1",
-      title: "All Star Shoe",
-      size: "9",
-      color: "yellow",
-      price: "400",
-      image:
-        "https://th.bing.com/th?id=OIP.1RfKeDjiffAd7MnXDykgcQAAAA&w=285&h=219&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-      quantity: 1,
-    },
-    {
-      id: "1",
-      title: "All Star Shoe",
-      size: "9",
-      color: "yellow",
-      price: "400",
-      image:
-        "https://th.bing.com/th?id=OIP.1RfKeDjiffAd7MnXDykgcQAAAA&w=285&h=219&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-      quantity: 1,
-    },
-    {
-      id: "1",
-      title: "All Star Shoe",
-      size: "9",
-      color: "yellow",
-      price: "400",
-      image:
-        "https://th.bing.com/th?id=OIP.1RfKeDjiffAd7MnXDykgcQAAAA&w=285&h=219&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
-      quantity: 1,
-    },
-    
-  ];
+  const [cartItmes, setCartItems] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      setCartItems(await fetchCartItems());
+    }
+    fetchData();
+  }, []);
+  //fetch to an api to get he cart items and get them here
   return (
     <main className={classes.cartContainer}>
       <ul className={classes.container}>
@@ -43,7 +22,7 @@ export default function CartProducts() {
           <div>Quantity </div>
           <div>Total </div>
         </div>
-        {cart.map((products) => {
+        {cartItmes?.cartProducts?.map((products) => {
           return (
             <>
               <hr />

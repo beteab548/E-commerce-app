@@ -1,4 +1,4 @@
-import mongoose, { model, Schema, SchemaTypes } from "mongoose";
+import mongoose, { model, Mongoose, Schema, SchemaTypes } from "mongoose";
 export function Connect() {
   if (mongoose.connections[0].readyState) {
     console.log("already connected");
@@ -128,7 +128,7 @@ const desktopSchema = new Schema({
 export const desktop =
   mongoose.models.desktop || model("desktop", desktopSchema);
 const cartSchema = new Schema({
-  userId: { type: SchemaTypes.String, required: true, ref: "User" },
+  userId: { type: SchemaTypes.ObjectId, required: true, ref: "User" },
   cart: {
     Items: {
       products: [],
@@ -136,3 +136,8 @@ const cartSchema = new Schema({
   },
 });
 export const cart = mongoose.models.cart || model("cart", cartSchema);
+const orderSchema = new Schema({
+  userId: { type: SchemaTypes.ObjectId, ref: "User" },
+  items: [],
+});
+export const order = mongoose.models.order || model("order", orderSchema);

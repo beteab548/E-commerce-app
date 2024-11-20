@@ -2,8 +2,8 @@ import { Connect, User } from "@/lib/database";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
+  console.log("in the register api endpoint");
   const formData = await req.json();
-  console.log(formData.email);
   await Connect();
   try {
     const ExistingUser = await User.findOne({ email: formData.email });
