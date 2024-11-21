@@ -90,15 +90,31 @@ export async function cartAction(prodToAdd) {
     userId: userId,
     cart: { Items: { products: parsedProduct } },
   };
-  console.log(productToBeAdd);
   const cartExists = await cart.findOne({ userId: userId });
   if (!cartExists) {
     await cart.create(productToBeAdd);
     redirect("/shop/products");
   } else {
-    //here check if the product to be added is also in teh cart and inceramt its quanity if exists if not push the nex product to the array
-
-    console.log(cartExists);
+    //fetch the user id and check with the one in the cart since in this else statement it exists then caheck for the product id if exist then only increament the wuantity other wise push it to the cart arra/
+    const cartExisting = await cart.findOne({ userId: userId });
+    if (!cartExisting) {
+      throw new Error("cart with this id doesn't exisit");
+    }
+    const cartinfo = cartExisting.cart.Items.products;
+    const productIndexInCart = cartinfo.findIndex((cartProducts) => {
+      return cartProducts.id.toString() === parsedProduct.id.toString();
+    });
+    if (productIndexInCart == -1) {
+      // push new product to the existing cart
+      cartinfo.push(parsedProduct);
+      cartExisting.markModified("cart.Items.products");
+      await cartExisting.save();
+      return redirect
+    }
+    cartinfo[productIndexInCart].quantity =
+      cartinfo[productIndexInCart].quantity + 1;
+    cartExisting.markModified("cart.Items.products");
+    await cartExisting.save();
   }
 }
 export async function register(formdata) {
