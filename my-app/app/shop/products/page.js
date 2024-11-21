@@ -69,7 +69,7 @@ export default function ButtonRow() {
             <p className={classes.select}>
               {productSelected
                 ? "No Product Found With Selected Price"
-                : "Please Select A Product"}
+                : "Please Select A Product And The Price Range!"}
             </p>
           )}
           {productsArray?.map((products, index) => {

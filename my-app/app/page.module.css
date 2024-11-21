@@ -20,7 +20,8 @@
   margin-top: 10px;
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  background: linear-gradient(120deg, #000000, #434343);
+
   height: 44rem;
 }
 
@@ -35,7 +36,7 @@
 }
 .button {
   background-color: #f7f4f4;
-  color: #000000;
+  color: #292828;
   width: 105px;
   height: 45px;
   font-size: larger;
@@ -44,8 +45,9 @@
   border-width: 3px;
 }
 .button:hover {
-  background-color: #ff5858;
+  background-color: #2e2d2d;
   cursor: pointer;
+  color: white;
 }
 @media (prefers-color-scheme: dark) {
   .page {

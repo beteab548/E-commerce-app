@@ -28,7 +28,7 @@ export default function MainHeader() {
           <Profile />
         </div>
       </header>
-      <hr />
+      <hr className={classes.hr} />
     </>
   );
 }

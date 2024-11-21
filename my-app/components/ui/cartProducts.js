@@ -6,6 +6,7 @@ import classes from "./cartProducts.module.css";
 import { useEffect, useState } from "react";
 export default function CartProducts() {
   const [cartItmes, setCartItems] = useState([]);
+  const [cartFetched, setCartFetched] = useState(false);
   useEffect(() => {
     async function fetchData() {
       setCartItems(await fetchCartItems());
@@ -22,9 +23,7 @@ export default function CartProducts() {
           <div>Quantity </div>
           <div>Total </div>
         </div>
-        {!cartItmes[0] && (
-          <p>No Products In Your Cart Yet</p>
-        )}
+        {!cartItmes[0] && cartFetched && <p>No Products In Your Cart Yet</p>}
         {cartItmes[0]?.cart?.Items?.products?.map((products) => {
           return (
             <>
@@ -42,10 +41,10 @@ export default function CartProducts() {
                         >
                           {products.description}
                         </Link>
-                        <p> size :{products.size}</p>
+                        {products.size && <p>size :{products.size}</p>}
                       </div>
                       <div>
-                        <p>color: {products.color}</p>
+                        {products.color && <p>color :{products.color}</p>}
                       </div>
                     </div>
                   </div>

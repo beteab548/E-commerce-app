@@ -1,6 +1,6 @@
 import CartProducts from "@/components/ui/cartProducts";
 import classes from "./cart.module.css";
-import CheckOut from "../checkout/page";
+import CheckOut from "@/components/checkout"
 export default function Cart() {
   return (
     <div className={classes.container}>

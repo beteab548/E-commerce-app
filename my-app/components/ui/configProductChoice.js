@@ -4,7 +4,7 @@ import conficClasses from "./configureProductChoice.module.css";
 import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleProductSelection } from "@/lib/fetchMethods";
-import { changeProdType } from "@/lib/redux/config_product_choice_slice";
+//you can set up the price range value according to the clicked product-type and then user can select which one they want accordingly
 export default function ConfigProductChoice() {
   const sliderValue = useRef();
   const sliderValue2 = useRef();
