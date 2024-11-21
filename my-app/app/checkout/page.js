@@ -18,8 +18,17 @@ export default function CheckOut() {
     },
     0
   );
+
   return (
     <div className={classes.container}>
+      <div>
+        <ol>
+          <p>Selected Items</p>
+          {cartItmes[0]?.cart?.Items?.products.map((prods) => {
+            return <li key={prods.id} className={classes.lists}>{prods.description}</li>;
+          })}
+        </ol>
+      </div>
       <div>
         <p>total Price: $ {prodsQuantity}</p>
       </div>
