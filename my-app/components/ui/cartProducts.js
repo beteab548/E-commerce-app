@@ -13,7 +13,6 @@ export default function CartProducts() {
     fetchData();
   }, []);
   //fetch to an api to get he cart items and get them here
-  console.log(cartItmes);
   return (
     <main className={classes.cartContainer}>
       <ul className={classes.container}>
@@ -23,7 +22,7 @@ export default function CartProducts() {
           <div>Quantity </div>
           <div>Total </div>
         </div>
-        {cartItmes?.map((products) => {
+        {cartItmes[0]?.cart?.Items?.products?.map((products) => {
           return (
             <>
               <hr />
@@ -31,11 +30,15 @@ export default function CartProducts() {
                 <li key={products.id}>
                   <div className={classes.listContainer}>
                     <div>
-                      <img src={products.image} width={70} height={70} />
+                      <img src={products.imagePath} width={70} height={70} />
                     </div>
                     <div>
                       <div>
-                        <Link href={"/shop/products"}>{products.title}</Link>
+                        <Link
+                          href={`/shop/product/product_type=${products.product_type}&id=${products.id}`}
+                        >
+                          {products.description}
+                        </Link>
                         <p> size :{products.size}</p>
                       </div>
                       <div>
@@ -61,7 +64,7 @@ export default function CartProducts() {
                   </div>
                 </div>
                 <div className={classes.total}>
-                  <p>$ 400</p>
+                  <p>$ {products.quantity * products.price}</p>
                 </div>
               </div>
             </>

@@ -109,12 +109,13 @@ export async function cartAction(prodToAdd) {
       cartinfo.push(parsedProduct);
       cartExisting.markModified("cart.Items.products");
       await cartExisting.save();
-      return redirect
+      return redirect('/shop/products')
     }
     cartinfo[productIndexInCart].quantity =
       cartinfo[productIndexInCart].quantity + 1;
     cartExisting.markModified("cart.Items.products");
     await cartExisting.save();
+    return redirect('/shop/products')
   }
 }
 export async function register(formdata) {
