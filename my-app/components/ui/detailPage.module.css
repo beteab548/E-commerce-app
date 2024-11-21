@@ -1,17 +1,26 @@
 .container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
   justify-content: center;
   color: rgb(58, 57, 57);
   margin: 15px;
+  column-gap: 40px;
+}
+.image {
+  margin: 20px;
+}
+.detail div {
+  margin: 15px;
+  font-size: larger;
+  font-family: "Times New Roman", Times, serif;
 }
 .button {
   height: 50px;
   width: 100px;
   margin-top: 20px;
 }
-.button:hover{
-    background-color: rgb(241, 120, 140);
-    color: white;
+.button:hover {
+  background-color: rgb(241, 120, 140);
+  color: white;
 }

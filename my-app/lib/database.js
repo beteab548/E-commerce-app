@@ -23,7 +23,6 @@ const userSchema = new Schema({
 export const User = mongoose.models.User || model("User", userSchema);
 const shoeSchema = new Schema({
   brand: { type: SchemaTypes.String, required: true },
-  model_name: { type: SchemaTypes.String, required: true },
   description: { type: SchemaTypes.String, required: true },
   color: { type: SchemaTypes.String, required: true },
   price: { type: SchemaTypes.Number, required: true },
@@ -54,11 +53,11 @@ const houseSchema = new Schema({
 export const house = mongoose.models.house || model("house", houseSchema);
 
 const phoneSchema = new Schema({
+  brand: { type: SchemaTypes.String, required: true },
   screen_size: { type: SchemaTypes.String, required: true },
   description: { type: SchemaTypes.String, required: true },
   price: { type: SchemaTypes.Number, required: true },
   color: { type: SchemaTypes.String, required: true },
-  address: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
   product_type: { type: SchemaTypes.String, required: true },
 });
@@ -68,6 +67,7 @@ const tshirtSchema = new Schema({
   description: { type: SchemaTypes.String, required: true },
   price: { type: SchemaTypes.Number, required: true },
   color: { type: SchemaTypes.String, required: true },
+  gender: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
   size: { type: SchemaTypes.String, required: true },
   product_type: { type: SchemaTypes.String, required: true },
@@ -83,7 +83,7 @@ const pantsSchema = new Schema({
   size: { type: SchemaTypes.String, required: true },
   product_type: { type: SchemaTypes.String, required: true },
 });
-export const pants = mongoose.models.pants || model("pants", pantsSchema);
+export const pant = mongoose.models.pant || model("pant", pantsSchema);
 
 const hoddieSchema = new Schema({
   brand: { type: SchemaTypes.String, required: true },
@@ -112,18 +112,23 @@ const laptopSchema = new Schema({
   model_name: { type: SchemaTypes.String, required: true },
   description: { type: SchemaTypes.String, required: true },
   price: { type: SchemaTypes.Number, required: true },
-  Screen_size: { type: SchemaTypes.Number, required: true },
+  screen_size: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
+  ram_size: { type: SchemaTypes.String, required: true },
+  storage_size: { type: SchemaTypes.String, required: true },
   product_type: { type: SchemaTypes.String, required: true },
+  color: { type: SchemaTypes.String, required: true },
 });
 export const laptop = mongoose.models.laptop || model("laptop", laptopSchema);
 const desktopSchema = new Schema({
   model_name: { type: SchemaTypes.String, required: true },
   description: { type: SchemaTypes.String, required: true },
   price: { type: SchemaTypes.Number, required: true },
-  Screen_size: { type: SchemaTypes.Number, required: true },
+  storage_size: { type: SchemaTypes.String, required: true },
+  ram_size: { type: SchemaTypes.String, required: true },
   imagePath: { type: SchemaTypes.String, required: true },
   product_type: { type: SchemaTypes.String, required: true },
+  color: { type: SchemaTypes.String, required: true },
 });
 export const desktop =
   mongoose.models.desktop || model("desktop", desktopSchema);
@@ -139,6 +144,7 @@ export const cart = mongoose.models.cart || model("cart", cartSchema);
 const orderSchema = new Schema({
   userId: { type: SchemaTypes.ObjectId, ref: "User" },
   cart: {
+    cartId: { type: SchemaTypes.ObjectId },
     Items: {
       products: {
         type: SchemaTypes.Array,

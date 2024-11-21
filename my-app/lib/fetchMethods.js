@@ -10,7 +10,7 @@ import {
   house,
   hoddie,
   tshirt,
-  pants,
+  pant,
   Connect,
 } from "./database";
 
@@ -49,6 +49,75 @@ export async function fetchModels() {
 let query = {};
 export async function handleProductSelection(modelName, priceRange) {
   await Connect();
+  // code to insert datas to the database
+  // await shoe.create({
+  //   brand: "All Star",
+  //   description: "Yellow All Star ",
+  //   price: "459",
+  //   color: "yellow",
+  //   gender: "Both",
+  //   size: "9",
+  //   product_type: "shoe",
+  //   imagePath:
+  //     "https://th.bing.com/th?id=OIP.1RfKeDjiffAd7MnXDykgcQAAAA&w=285&h=219&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+  // });
+  // await jacket.create({
+  //   brand: "Gucci",
+  //   description: "Brown Lether ",
+  //   price: "1300",
+  //   color: "Brown",
+  //   gender: "Men",
+  //   size: "XL",
+  //   product_type: "jacket",
+  //   imagePath:
+  //     " https://th.bing.com/th/id/OIP.6fjBx_fD9V6TvcbVxDLXxQHaIl?w=205&h=238&c=7&r=0&o=5&pid=1.7",
+  // });
+  // await hoddie.create({
+  //   brand: "Vintage",
+  //   description: "Red Hoddie With Fur ",
+  //   price: "359",
+  //   color: "Red",
+  //   gender: "Both",
+  //   size: "XXL",
+  //   product_type: "hoddie",
+  //   imagePath:
+  //     "https://th.bing.com/th/id/OIP.OtCgzJ4hBI2VG_W0K-1uRAHaJE?w=202&h=248&c=7&r=0&o=5&pid=1.7",
+  // });
+  // await pant.create({
+  //   brand: "Denim",
+  //   description: "Dark Blue Denim ",
+  //   price: "229",
+  //   color: "Dark Blue",
+  //   gender: "Women",
+  //   size: "32",
+  //   product_type: "pant",
+  //   imagePath:
+  //     "https://th.bing.com/th?id=OIP.lGM5ZAq1ny-ikrmov8d_-QHaIr&w=231&h=270&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+  // });
+  // await laptop.create({
+  //   model_name: "HP",
+  //   description: "Old Hp Laptop ",
+  //   price: "159",
+  //   color: "grey",
+  //   screen_size: '15',
+  //   product_type: "laptop",
+  //   storage_size: "500GB",
+  //   ram_size: "4gb",
+  //   imagePath:
+  //     "https://th.bing.com/th?id=OIP.ZMj8cOs4Vw4QavsS6vEt8AHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2",
+  // });
+  // await desktop.create({
+  //   model_name: "HP",
+  //   description: "Old Hp Laptop ",
+  //   price: "359",
+  //   color: "grey",
+  //   product_type: "desktop",
+  //   storage_size: "256Gb",
+  //   ram_size: "6gb",
+  //   imagePath:
+  //     "https://th.bing.com/th/id/OIP.bL7oPfVOHWUp5Fe7m-cJtwHaHa?w=170&h=180&c=7&r=0&o=5&pid=1.7",
+  // });
+
   if (priceRange) {
     query = { price: { $gte: +priceRange.min, $lte: +priceRange.max } };
   }
@@ -69,17 +138,11 @@ export async function handleProductSelection(modelName, priceRange) {
         product_type: allShoes.product_type,
       });
     });
-    //display how progress bar works when the resul is delayed
-    // return new Promise((resolve) => {
-    //   setTimeout(() => {
-    //     resolve(productObjectArray);
-    //   }, 3000);
-    // });
     return productObjectArray;
   }
-  if (modelName === "pants") {
+  if (modelName === "pant") {
     const productObjectArray = [];
-    const allPants = await pants.find(query);
+    const allPants = await pant.find(query);
     allPants.map((allPants) => {
       return productObjectArray.push({
         id: allPants._id.toString(),
@@ -300,18 +363,7 @@ export async function handleProductSelection(modelName, priceRange) {
   //     "https://th.bing.com/th/id/OIP.OtCgzJ4hBI2VG_W0K-1uRAHaJE?w=202&h=248&c=7&r=0&o=5&pid=1.7",
   // });
 }
-//   await jacket.create({
-//     brand: "gucci",
-//     description: "brown lether ",
-//     price: "1300",
-//     color: "brown",
-//     gender: "men",
-//     size: 'XL',
-//     product_type:'jacket',
-//     imagePath:
-//     " https://th.bing.com/th/id/OIP.6fjBx_fD9V6TvcbVxDLXxQHaIl?w=205&h=238&c=7&r=0&o=5&pid=1.7"
-//   });}
-// }
+
 export async function fetchSingleProduct(product_type, product_id) {
   let productDetailObject = [];
   try {
@@ -336,8 +388,14 @@ export async function fetchSingleProduct(product_type, product_id) {
       price: product_detail[0].price,
       imagePath: product_detail[0].imagePath,
       product_type: product_detail[0].product_type,
+      screen_size: product_detail[0].screen_size,
+      storage_size: product_detail[0].storage_size,
+      ram_size: product_detail[0].ram_size,
+      brand: product_detail[0].brand,
+      gender: product_detail[0].gender,
+      size: product_detail[0].size,
+      color: product_detail[0].color,
     };
-
     return productDetailObject;
   } catch (err) {
     console.log(err);

@@ -4,11 +4,12 @@ import conficClasses from "./configureProductChoice.module.css";
 import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleProductSelection } from "@/lib/fetchMethods";
+import { changeProdType } from "@/lib/redux/config_product_choice_slice";
 export default function ConfigProductChoice() {
   const sliderValue = useRef();
   const sliderValue2 = useRef();
   const [priceValue, setPriceValue] = useState(1);
-  const [priceValue2, setPriceValue2] = useState(2000);
+  const [priceValue2, setPriceValue2] = useState(2000); //this maximum value has to be set dynamically from the largest price in the collection
   const config_product_choice = useSelector((state) => {
     return state.config_product_choice.Product_type;
   });

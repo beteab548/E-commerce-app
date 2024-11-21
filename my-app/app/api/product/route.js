@@ -7,7 +7,7 @@ import {
   house,
   jacket,
   laptop,
-  pants,
+  pant,
   phone,
   shoe,
   tshirt,
@@ -27,7 +27,7 @@ export async function POST(req) {
       const fetchedProductDetail = await car.find({ _id: ObjectId });
       return NextResponse.json({ product_detail: fetchedProductDetail });
     } else if (product_type === "pants") {
-      const fetchedProductDetail = await pants.find({ _id: ObjectId });
+      const fetchedProductDetail = await pant.find({ _id: ObjectId });
       return NextResponse.json({ product_detail: fetchedProductDetail });
     } else if (product_type === "phone") {
       const fetchedProductDetail = await phone.find({ _id: ObjectId });

@@ -22,6 +22,9 @@ export default function CartProducts() {
           <div>Quantity </div>
           <div>Total </div>
         </div>
+        {!cartItmes[0] && (
+          <p>No Products In Your Cart Yet</p>
+        )}
         {cartItmes[0]?.cart?.Items?.products?.map((products) => {
           return (
             <>

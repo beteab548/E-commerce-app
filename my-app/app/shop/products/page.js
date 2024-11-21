@@ -38,6 +38,7 @@ export default function ButtonRow() {
     // event.preventDefault(); //this is causing the code to slow down
     containerRef.current.scrollLeft += event.deltaY;
   };
+  console.log('it reloaded');
   return (
     <>
       <div
@@ -64,14 +65,14 @@ export default function ButtonRow() {
         <h4>Featured Products now</h4>
 
         <ul className={classes.prodsLists}>
-          {productsArray.length <= 0 && (
+          {productsArray?.length <= 0 && (
             <p className={classes.select}>
               {productSelected
                 ? "No Product Found With Selected Price"
                 : "Please Select A Product"}
             </p>
           )}
-          {productsArray.map((products, index) => {
+          {productsArray?.map((products, index) => {
             return (
               <Card
                 key={index}
