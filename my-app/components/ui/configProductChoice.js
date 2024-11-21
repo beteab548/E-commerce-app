@@ -3,6 +3,7 @@ import classes from "@/app/shop/products/layout.module.css";
 import conficClasses from "./configureProductChoice.module.css";
 import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { handleProductSelection } from "@/lib/fetchMethods";
 export default function ConfigProductChoice() {
   const sliderValue = useRef();
   const sliderValue2 = useRef();
@@ -11,10 +12,18 @@ export default function ConfigProductChoice() {
   const config_product_choice = useSelector((state) => {
     return state.config_product_choice.Product_type;
   });
-  function handleMouseRelease() {
+  function handleMouseRelease(event) {
+    handleProductSelection(config_product_choice, {
+      min: sliderValue.current.value,
+      max: sliderValue2.current.value,
+    });
     setPriceValue(sliderValue.current.value);
   }
-  function handleMouseRelease2() {
+  function handleMouseRelease2(event) {
+    handleProductSelection(config_product_choice, {
+      min: sliderValue.current.value,
+      max: sliderValue2.current.value,
+    });
     setPriceValue2(sliderValue2.current.value);
   }
   return (
@@ -26,7 +35,7 @@ export default function ConfigProductChoice() {
           type="range"
           className={conficClasses.slider}
           min={1}
-          max={+priceValue2-1}
+          max={+priceValue2 - 1}
           value={priceValue}
           ref={sliderValue}
           onMouseUp={handleMouseRelease}
@@ -36,7 +45,7 @@ export default function ConfigProductChoice() {
         <input
           type="range"
           className={conficClasses.slider}
-          min={+priceValue+1}
+          min={+priceValue + 1}
           max={2000}
           ref={sliderValue2}
           onMouseUp={handleMouseRelease2}

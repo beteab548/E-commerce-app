@@ -46,11 +46,15 @@ export async function fetchModels() {
   });
   return modelNames;
 }
-export async function handleProductSelection(modelName) {
+let query = {};
+export async function handleProductSelection(modelName, priceRange) {
   await Connect();
+  if (priceRange) {
+    query = { price: { $gte: +priceRange.min, $lte: +priceRange.max } };
+  }
   if (modelName === "shoe") {
     const productObjectArray = [];
-    const allShoes = await shoe.find().limit(5);
+    const allShoes = await shoe.find(query).limit(5);
     allShoes.map((allShoes) => {
       return productObjectArray.push({
         id: allShoes._id.toString(),
@@ -75,7 +79,7 @@ export async function handleProductSelection(modelName) {
   }
   if (modelName === "pants") {
     const productObjectArray = [];
-    const allPants = await pants.find();
+    const allPants = await pants.find(query);
     allPants.map((allPants) => {
       return productObjectArray.push({
         id: allPants._id.toString(),
@@ -94,7 +98,7 @@ export async function handleProductSelection(modelName) {
   }
   if (modelName === "hoddie") {
     const productObjectArray = [];
-    const allHoddies = await hoddie.find();
+    const allHoddies = await hoddie.find(query);
     allHoddies.map((allHoddies) => {
       return productObjectArray.push({
         id: allHoddies._id.toString(),
@@ -111,7 +115,9 @@ export async function handleProductSelection(modelName) {
     return productObjectArray;
   }
   if (modelName === "jacket") {
-    const allJackets = await jacket.find();
+    console.log("in the jacket");
+
+    const allJackets = await jacket.find(query);
     const productObjectArray = [];
     allJackets.map((allJackets) => {
       return productObjectArray.push({
@@ -126,10 +132,11 @@ export async function handleProductSelection(modelName) {
         product_type: allJackets.product_type,
       });
     });
+    console.log(productObjectArray);
     return productObjectArray;
   }
   if (modelName === "tshirt") {
-    const allTshirt = await tshirt.find();
+    const allTshirt = await tshirt.find(query);
     const productObjectArray = [];
     allTshirt.map((allTshirt) => {
       return productObjectArray.push({
@@ -147,7 +154,7 @@ export async function handleProductSelection(modelName) {
     return productObjectArray;
   }
   if (modelName === "laptop") {
-    const allLaptops = await laptop.find();
+    const allLaptops = await laptop.find(query);
     const productObjectArray = [];
     allLaptops.map((allLaptops) => {
       return productObjectArray.push({
@@ -163,7 +170,7 @@ export async function handleProductSelection(modelName) {
     return productObjectArray;
   }
   if (modelName === "desktop") {
-    const allDesktop = await desktop.find();
+    const allDesktop = await desktop.find(query);
     const productObjectArray = [];
     allDesktop.map((allDesktop) => {
       return productObjectArray.push({
@@ -181,7 +188,7 @@ export async function handleProductSelection(modelName) {
     return productObjectArray;
   }
   if (modelName === "phone") {
-    const allPhones = await phone.find();
+    const allPhones = await phone.find(query);
     const productObjectArray = [];
     allPhones.map((allPhones) => {
       return productObjectArray.push({
@@ -198,7 +205,7 @@ export async function handleProductSelection(modelName) {
     return productObjectArray;
   }
   if (modelName === "car") {
-    const allCars = await car.find();
+    const allCars = await car.find(query);
     const productObjectArray = [];
     allCars.map((allCars) => {
       return productObjectArray.push({
@@ -213,7 +220,7 @@ export async function handleProductSelection(modelName) {
     return productObjectArray;
   }
   if (modelName === "house") {
-    const allHouses = await house.find();
+    const allHouses = await house.find(query);
     const productObjectArray = [];
     allHouses.map((allHouses) => {
       return productObjectArray.push({

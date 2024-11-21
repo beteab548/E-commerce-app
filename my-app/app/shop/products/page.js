@@ -15,11 +15,13 @@ export default function ButtonRow() {
   const containerRef = useRef(null);
   const [modelNames, setModelsName] = useState([]);
   const [productsArray, setProductsArray] = useState([]);
+  const [productSelected, setProductselected] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     async function fetchData() {
       const modelNameArray = await fetchModels();
       setModelsName(modelNameArray);
+      setProductselected(false);
     }
     fetchData();
   }, []);
@@ -28,6 +30,7 @@ export default function ButtonRow() {
     dispatch(setLoadingPageStateToTrue());
     const productsData = await handleProductSelection(ProductName);
     setProductsArray(productsData);
+    setProductselected(true);
     dispatch(setLoadingPageStateToFalse());
   }
   const handleScroll = (event) => {
@@ -35,7 +38,6 @@ export default function ButtonRow() {
     // event.preventDefault(); //this is causing the code to slow down
     containerRef.current.scrollLeft += event.deltaY;
   };
-  // console.log(modelNames);
   return (
     <>
       <div
@@ -59,10 +61,16 @@ export default function ButtonRow() {
         })}
       </div>
       <main className={classes.ProductsContainer}>
-        <h2>Featured Products now</h2>
+        <h4>Featured Products now</h4>
 
-        <ul>
-          {/* {productsArray == [] && <p>No Products Available yet</p>} */}
+        <ul className={classes.prodsLists}>
+          {productsArray.length <= 0 && (
+            <p className={classes.select}>
+              {productSelected
+                ? "No Product Found With Selected Price"
+                : "Please Select A Product"}
+            </p>
+          )}
           {productsArray.map((products, index) => {
             return (
               <Card

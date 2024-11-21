@@ -1,4 +1,4 @@
-import mongoose, { model, Mongoose, Schema, SchemaTypes } from "mongoose";
+import mongoose, { model, Schema, SchemaTypes } from "mongoose";
 export function Connect() {
   if (mongoose.connections[0].readyState) {
     console.log("already connected");

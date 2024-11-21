@@ -49,10 +49,15 @@
 
 .ProductsContainer ul {
   display: grid;
-  grid-template-columns: auto auto auto auto ;
+  grid-template-columns: auto auto auto auto;
   justify-content: space-evenly;
 }
 
 .color {
   color: black;
+}
+.prodsLists .select {
+  margin-top: 25px;
+  text-align: center;
+  margin-left: 370px;
 }
