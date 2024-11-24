@@ -18,7 +18,7 @@ export async function POST(req) {
   const reqData = await req.json();
   const ObjectId = new mongoose.Types.ObjectId(reqData.product_id);
   if (!ObjectId) {
-    throw new Error;
+    return NextResponse.json({ message: "error feching product data!!!" });
   }
   await Connect();
   const product_type = reqData.product_type;

@@ -30,10 +30,10 @@ export default function CheckOut() {
               </li>
             );
           })}
-        </ol>
       <div>
         <p>total Price: $ {prodsQuantity}</p>
       </div>
+        </ol>
       <div>
         <Link href={"/checkout"}>
           <button>Checkout</button>
