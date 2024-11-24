@@ -2,6 +2,9 @@
 import classes from "./detailPage.module.css";
 import { cartAction } from "@/lib/actions";
 export default function ProductDetail({ productInfo }) {
+  if(!productInfo){
+throw new Error
+  }
   const {
     model_name,
     price,

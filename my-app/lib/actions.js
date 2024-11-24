@@ -82,6 +82,9 @@ export async function Decrypt(session) {
 export async function cartAction(prodToAdd) {
   const newProdToAdd = Object.fromEntries(prodToAdd).productInfo;
   const cookie = (await cookies()).get("session");
+  if (!cookie) {
+    redirect("/shop/products");
+  }
   const { userId } = await Decrypt(cookie.value);
   const parsedProduct = JSON.parse(newProdToAdd);
   parsedProduct.id = new mongoose.Types.ObjectId(parsedProduct.id);
@@ -109,13 +112,13 @@ export async function cartAction(prodToAdd) {
       cartinfo.push(parsedProduct);
       cartExisting.markModified("cart.Items.products");
       await cartExisting.save();
-      return redirect('/shop/products')
+      return redirect("/shop/products");
     }
     cartinfo[productIndexInCart].quantity =
       cartinfo[productIndexInCart].quantity + 1;
     cartExisting.markModified("cart.Items.products");
     await cartExisting.save();
-    return redirect('/shop/products')
+    return redirect("/shop/products");
   }
 }
 export async function register(formdata) {
