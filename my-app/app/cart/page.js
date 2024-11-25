@@ -13,10 +13,10 @@ export default async function Cart() {
         <p>Cart Items List</p>
         {payload ? <CartProducts /> : <p>Login To Add Items To a Cart!</p>}
       </div>
-      <div className={classes.checkout}>
+      {payload && <div className={classes.checkout}>
         <p>Checkout Summary</p>
-        <CheckOut />
-      </div>
+         <CheckOut />
+      </div>}
     </div>
   );
 }
